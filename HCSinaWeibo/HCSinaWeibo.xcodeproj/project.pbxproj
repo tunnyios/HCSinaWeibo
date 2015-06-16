@@ -13,6 +13,7 @@
 		A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */; };
 		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
 		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
+		A23C62101B30715C004F86BA /* HCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C620F1B30715C004F86BA /* HCMainViewController.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
 		A2599B2B1B304A3D00CD133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B261B304A3D00CD133B /* main.m */; };
@@ -41,6 +42,8 @@
 		A23C62011B306A89004F86BA /* HCMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMessageTableViewController.m; sourceTree = "<group>"; };
 		A23C62061B306A97004F86BA /* HCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProfileTableViewController.h; sourceTree = "<group>"; };
 		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
+		A23C620E1B30715C004F86BA /* HCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainViewController.h; sourceTree = "<group>"; };
+		A23C620F1B30715C004F86BA /* HCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainViewController.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 			children = (
 				A2599B251B304A3D00CD133B /* Lib */,
 				A2599B261B304A3D00CD133B /* main.m */,
+				A23C620E1B30715C004F86BA /* HCMainViewController.h */,
+				A23C620F1B30715C004F86BA /* HCMainViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23C62101B30715C004F86BA /* HCMainViewController.m in Sources */,
 				A2599B2C1B304A3D00CD133B /* AppDelegate.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
