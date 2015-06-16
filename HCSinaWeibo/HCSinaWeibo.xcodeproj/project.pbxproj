@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A2599B001B2FF8D900CD133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599AFF1B2FF8D900CD133B /* main.m */; };
-		A2599B031B2FF8D900CD133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B021B2FF8D900CD133B /* AppDelegate.m */; };
+		A23C61E01B304C59004F86BA /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61DF1B304C59004F86BA /* UIColor+Tools.m */; };
+		A23C61E21B306129004F86BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23C61E11B306129004F86BA /* UIKit.framework */; };
+		A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61F51B306A6F004F86BA /* HCDiscoverTableViewController.m */; };
+		A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */; };
+		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
+		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
-		A2599B0E1B2FF8D900CD133B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
+		A2599B2B1B304A3D00CD133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B261B304A3D00CD133B /* main.m */; };
+		A2599B2C1B304A3D00CD133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B291B304A3D00CD133B /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,16 +30,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A23C61DE1B304C59004F86BA /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
+		A23C61DF1B304C59004F86BA /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		A23C61E11B306129004F86BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A23C61F41B306A6F004F86BA /* HCDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDiscoverTableViewController.h; sourceTree = "<group>"; };
+		A23C61F51B306A6F004F86BA /* HCDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDiscoverTableViewController.m; sourceTree = "<group>"; };
+		A23C61FA1B306A7B004F86BA /* HCHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeTableViewController.h; sourceTree = "<group>"; };
+		A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHomeTableViewController.m; sourceTree = "<group>"; };
+		A23C62001B306A89004F86BA /* HCMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMessageTableViewController.h; sourceTree = "<group>"; };
+		A23C62011B306A89004F86BA /* HCMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMessageTableViewController.m; sourceTree = "<group>"; };
+		A23C62061B306A97004F86BA /* HCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProfileTableViewController.h; sourceTree = "<group>"; };
+		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2599AFF1B2FF8D900CD133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A2599B011B2FF8D900CD133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A2599B021B2FF8D900CD133B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A2599B0D1B2FF8D900CD133B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A2599B131B2FF8D900CD133B /* HCSinaWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCSinaWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599B181B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSinaWeiboTests.m; sourceTree = "<group>"; };
+		A2599B261B304A3D00CD133B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A2599B281B304A3D00CD133B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A2599B291B304A3D00CD133B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23C61E21B306129004F86BA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,9 +71,151 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A23C61DD1B304C46004F86BA /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61DE1B304C59004F86BA /* UIColor+Tools.h */,
+				A23C61DF1B304C59004F86BA /* UIColor+Tools.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		A23C61E31B3068CE004F86BA /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61F31B306A6F004F86BA /* Controller */,
+				A23C61F61B306A6F004F86BA /* Model */,
+				A23C61F71B306A6F004F86BA /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		A23C61E41B3068CE004F86BA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61F91B306A7B004F86BA /* Controller */,
+				A23C61FC1B306A7B004F86BA /* Model */,
+				A23C61FD1B306A7B004F86BA /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A23C61E51B3068CE004F86BA /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61FF1B306A89004F86BA /* Controller */,
+				A23C62021B306A89004F86BA /* Model */,
+				A23C62031B306A89004F86BA /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		A23C61E61B3068CE004F86BA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A23C62051B306A97004F86BA /* Controller */,
+				A23C62081B306A97004F86BA /* Model */,
+				A23C62091B306A97004F86BA /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A23C61F31B306A6F004F86BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61F41B306A6F004F86BA /* HCDiscoverTableViewController.h */,
+				A23C61F51B306A6F004F86BA /* HCDiscoverTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A23C61F61B306A6F004F86BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A23C61F71B306A6F004F86BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A23C61F91B306A7B004F86BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61FA1B306A7B004F86BA /* HCHomeTableViewController.h */,
+				A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A23C61FC1B306A7B004F86BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A23C61FD1B306A7B004F86BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A23C61FF1B306A89004F86BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A23C62001B306A89004F86BA /* HCMessageTableViewController.h */,
+				A23C62011B306A89004F86BA /* HCMessageTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A23C62021B306A89004F86BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A23C62031B306A89004F86BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A23C62051B306A97004F86BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A23C62061B306A97004F86BA /* HCProfileTableViewController.h */,
+				A23C62071B306A97004F86BA /* HCProfileTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A23C62081B306A97004F86BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A23C62091B306A97004F86BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A2599AF11B2FF8D800CD133B = {
 			isa = PBXGroup;
 			children = (
+				A23C61E11B306129004F86BA /* UIKit.framework */,
 				A2599AFC1B2FF8D900CD133B /* HCSinaWeibo */,
 				A2599B161B2FF8D900CD133B /* HCSinaWeiboTests */,
 				A2599AFB1B2FF8D900CD133B /* Products */,
@@ -76,10 +234,8 @@
 		A2599AFC1B2FF8D900CD133B /* HCSinaWeibo */ = {
 			isa = PBXGroup;
 			children = (
-				A2599B011B2FF8D900CD133B /* AppDelegate.h */,
-				A2599B021B2FF8D900CD133B /* AppDelegate.m */,
+				A2599B231B304A3D00CD133B /* Classes */,
 				A2599B0A1B2FF8D900CD133B /* Images.xcassets */,
-				A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */,
 				A2599AFD1B2FF8D900CD133B /* Supporting Files */,
 			);
 			path = HCSinaWeibo;
@@ -89,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				A2599AFE1B2FF8D900CD133B /* Info.plist */,
-				A2599AFF1B2FF8D900CD133B /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -109,6 +264,45 @@
 				A2599B181B2FF8D900CD133B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2599B231B304A3D00CD133B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A23C61E31B3068CE004F86BA /* Discover */,
+				A23C61E41B3068CE004F86BA /* Home */,
+				A23C61E51B3068CE004F86BA /* Message */,
+				A23C61E61B3068CE004F86BA /* Profile */,
+				A23C61DD1B304C46004F86BA /* Tool */,
+				A2599B241B304A3D00CD133B /* Main */,
+				A2599B271B304A3D00CD133B /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A2599B241B304A3D00CD133B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A2599B251B304A3D00CD133B /* Lib */,
+				A2599B261B304A3D00CD133B /* main.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A2599B251B304A3D00CD133B /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		A2599B271B304A3D00CD133B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A2599B281B304A3D00CD133B /* AppDelegate.h */,
+				A2599B291B304A3D00CD133B /* AppDelegate.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +385,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2599B0E1B2FF8D900CD133B /* LaunchScreen.xib in Resources */,
 				A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,8 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2599B031B2FF8D900CD133B /* AppDelegate.m in Sources */,
-				A2599B001B2FF8D900CD133B /* main.m in Sources */,
+				A2599B2C1B304A3D00CD133B /* AppDelegate.m in Sources */,
+				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
+				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
+				A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */,
+				A2599B2B1B304A3D00CD133B /* main.m in Sources */,
+				A23C61E01B304C59004F86BA /* UIColor+Tools.m in Sources */,
+				A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,17 +430,6 @@
 			targetProxy = A2599B141B2FF8D900CD133B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2599B0D1B2FF8D900CD133B /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A2599B1B1B2FF8D900CD133B /* Debug */ = {
@@ -329,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
