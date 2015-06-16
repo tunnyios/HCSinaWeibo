@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		A2599B001B2FF8D900CD133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599AFF1B2FF8D900CD133B /* main.m */; };
 		A2599B031B2FF8D900CD133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B021B2FF8D900CD133B /* AppDelegate.m */; };
-		A2599B061B2FF8D900CD133B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B051B2FF8D900CD133B /* ViewController.m */; };
-		A2599B091B2FF8D900CD133B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2599B071B2FF8D900CD133B /* Main.storyboard */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B0E1B2FF8D900CD133B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
@@ -32,9 +30,6 @@
 		A2599AFF1B2FF8D900CD133B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A2599B011B2FF8D900CD133B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A2599B021B2FF8D900CD133B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A2599B041B2FF8D900CD133B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A2599B051B2FF8D900CD133B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A2599B081B2FF8D900CD133B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A2599B0D1B2FF8D900CD133B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A2599B131B2FF8D900CD133B /* HCSinaWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCSinaWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,9 +78,6 @@
 			children = (
 				A2599B011B2FF8D900CD133B /* AppDelegate.h */,
 				A2599B021B2FF8D900CD133B /* AppDelegate.m */,
-				A2599B041B2FF8D900CD133B /* ViewController.h */,
-				A2599B051B2FF8D900CD133B /* ViewController.m */,
-				A2599B071B2FF8D900CD133B /* Main.storyboard */,
 				A2599B0A1B2FF8D900CD133B /* Images.xcassets */,
 				A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */,
 				A2599AFD1B2FF8D900CD133B /* Supporting Files */,
@@ -199,7 +191,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2599B091B2FF8D900CD133B /* Main.storyboard in Resources */,
 				A2599B0E1B2FF8D900CD133B /* LaunchScreen.xib in Resources */,
 				A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */,
 			);
@@ -219,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2599B061B2FF8D900CD133B /* ViewController.m in Sources */,
 				A2599B031B2FF8D900CD133B /* AppDelegate.m in Sources */,
 				A2599B001B2FF8D900CD133B /* main.m in Sources */,
 			);
@@ -244,14 +234,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A2599B071B2FF8D900CD133B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2599B081B2FF8D900CD133B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A2599B0C1B2FF8D900CD133B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -416,6 +398,7 @@
 				A2599B1F1B2FF8D900CD133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2599B201B2FF8D900CD133B /* Build configuration list for PBXNativeTarget "HCSinaWeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +407,7 @@
 				A2599B221B2FF8D900CD133B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
