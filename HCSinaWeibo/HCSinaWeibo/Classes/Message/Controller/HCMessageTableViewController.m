@@ -14,6 +14,7 @@
 
 @implementation HCMessageTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -22,6 +23,18 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //左边图标
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    //右边图标
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发消息" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //只能在此处设置barButtonItem的状态
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {

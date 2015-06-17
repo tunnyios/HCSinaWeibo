@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A23C61E01B304C59004F86BA /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61DF1B304C59004F86BA /* UIColor+Tools.m */; };
+		A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DA1B31605600ECFC76 /* AppDelegate.m */; };
+		A20703DD1B31605600ECFC76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DB1B31605600ECFC76 /* main.m */; };
+		A20703E31B31620700ECFC76 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703E21B31620700ECFC76 /* UIBarButtonItem+Extension.m */; };
+		A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703E71B31679400ECFC76 /* TestOneViewController.m */; };
+		A20703EB1B3167A500ECFC76 /* TestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703EA1B3167A500ECFC76 /* TestTwoViewController.m */; };
+		A20703EE1B3167B000ECFC76 /* TestThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703ED1B3167B000ECFC76 /* TestThreeViewController.m */; };
+		A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F01B31696800ECFC76 /* UIColor+Tools.m */; };
+		A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F41B316BC800ECFC76 /* HCMainViewController.m */; };
+		A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F71B316BEF00ECFC76 /* HCNavigationController.m */; };
 		A23C61E21B306129004F86BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23C61E11B306129004F86BA /* UIKit.framework */; };
 		A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61F51B306A6F004F86BA /* HCDiscoverTableViewController.m */; };
 		A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */; };
 		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
 		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
-		A23C62101B30715C004F86BA /* HCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C620F1B30715C004F86BA /* HCMainViewController.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
-		A2599B2B1B304A3D00CD133B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B261B304A3D00CD133B /* main.m */; };
-		A2599B2C1B304A3D00CD133B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B291B304A3D00CD133B /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +36,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A23C61DE1B304C59004F86BA /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
-		A23C61DF1B304C59004F86BA /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		A20703D91B31605600ECFC76 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A20703DA1B31605600ECFC76 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A20703DB1B31605600ECFC76 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A20703E11B31620700ECFC76 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		A20703E21B31620700ECFC76 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		A20703E51B31634A00ECFC76 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A20703E61B31679400ECFC76 /* TestOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestOneViewController.h; sourceTree = "<group>"; };
+		A20703E71B31679400ECFC76 /* TestOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestOneViewController.m; sourceTree = "<group>"; };
+		A20703E91B3167A500ECFC76 /* TestTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTwoViewController.h; sourceTree = "<group>"; };
+		A20703EA1B3167A500ECFC76 /* TestTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTwoViewController.m; sourceTree = "<group>"; };
+		A20703EC1B3167B000ECFC76 /* TestThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestThreeViewController.h; sourceTree = "<group>"; };
+		A20703ED1B3167B000ECFC76 /* TestThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestThreeViewController.m; sourceTree = "<group>"; };
+		A20703EF1B31696800ECFC76 /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
+		A20703F01B31696800ECFC76 /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		A20703F31B316BC800ECFC76 /* HCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainViewController.h; sourceTree = "<group>"; };
+		A20703F41B316BC800ECFC76 /* HCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainViewController.m; sourceTree = "<group>"; };
+		A20703F61B316BEF00ECFC76 /* HCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationController.h; sourceTree = "<group>"; };
+		A20703F71B316BEF00ECFC76 /* HCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNavigationController.m; sourceTree = "<group>"; };
 		A23C61E11B306129004F86BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A23C61F41B306A6F004F86BA /* HCDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDiscoverTableViewController.h; sourceTree = "<group>"; };
 		A23C61F51B306A6F004F86BA /* HCDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDiscoverTableViewController.m; sourceTree = "<group>"; };
@@ -42,17 +63,12 @@
 		A23C62011B306A89004F86BA /* HCMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMessageTableViewController.m; sourceTree = "<group>"; };
 		A23C62061B306A97004F86BA /* HCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProfileTableViewController.h; sourceTree = "<group>"; };
 		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
-		A23C620E1B30715C004F86BA /* HCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainViewController.h; sourceTree = "<group>"; };
-		A23C620F1B30715C004F86BA /* HCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainViewController.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A2599B131B2FF8D900CD133B /* HCSinaWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCSinaWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599B181B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSinaWeiboTests.m; sourceTree = "<group>"; };
-		A2599B261B304A3D00CD133B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A2599B281B304A3D00CD133B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A2599B291B304A3D00CD133B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +90,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A20703D71B31605600ECFC76 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A20703E11B31620700ECFC76 /* UIBarButtonItem+Extension.h */,
+				A20703E21B31620700ECFC76 /* UIBarButtonItem+Extension.m */,
+				A20703EF1B31696800ECFC76 /* UIColor+Tools.h */,
+				A20703F01B31696800ECFC76 /* UIColor+Tools.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A20703D81B31605600ECFC76 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A20703D91B31605600ECFC76 /* AppDelegate.h */,
+				A20703DA1B31605600ECFC76 /* AppDelegate.m */,
+				A20703DB1B31605600ECFC76 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		A20703F21B316BC800ECFC76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A20703F31B316BC800ECFC76 /* HCMainViewController.h */,
+				A20703F41B316BC800ECFC76 /* HCMainViewController.m */,
+				A20703F61B316BEF00ECFC76 /* HCNavigationController.h */,
+				A20703F71B316BEF00ECFC76 /* HCNavigationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A23C61DD1B304C46004F86BA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				A23C61DE1B304C59004F86BA /* UIColor+Tools.h */,
-				A23C61DF1B304C59004F86BA /* UIColor+Tools.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -248,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				A2599AFE1B2FF8D900CD133B /* Info.plist */,
+				A20703E51B31634A00ECFC76 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,10 +333,16 @@
 		A2599B241B304A3D00CD133B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A20703F21B316BC800ECFC76 /* Controller */,
+				A20703D71B31605600ECFC76 /* Category */,
+				A20703D81B31605600ECFC76 /* Other */,
 				A2599B251B304A3D00CD133B /* Lib */,
-				A2599B261B304A3D00CD133B /* main.m */,
-				A23C620E1B30715C004F86BA /* HCMainViewController.h */,
-				A23C620F1B30715C004F86BA /* HCMainViewController.m */,
+				A20703E61B31679400ECFC76 /* TestOneViewController.h */,
+				A20703E71B31679400ECFC76 /* TestOneViewController.m */,
+				A20703E91B3167A500ECFC76 /* TestTwoViewController.h */,
+				A20703EA1B3167A500ECFC76 /* TestTwoViewController.m */,
+				A20703EC1B3167B000ECFC76 /* TestThreeViewController.h */,
+				A20703ED1B3167B000ECFC76 /* TestThreeViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -304,8 +357,6 @@
 		A2599B271B304A3D00CD133B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				A2599B281B304A3D00CD133B /* AppDelegate.h */,
-				A2599B291B304A3D00CD133B /* AppDelegate.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -408,14 +459,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A23C62101B30715C004F86BA /* HCMainViewController.m in Sources */,
-				A2599B2C1B304A3D00CD133B /* AppDelegate.m in Sources */,
+				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
+				A20703E31B31620700ECFC76 /* UIBarButtonItem+Extension.m in Sources */,
 				A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */,
-				A2599B2B1B304A3D00CD133B /* main.m in Sources */,
-				A23C61E01B304C59004F86BA /* UIColor+Tools.m in Sources */,
+				A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */,
 				A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */,
+				A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */,
+				A20703EB1B3167A500ECFC76 /* TestTwoViewController.m in Sources */,
+				A20703DD1B31605600ECFC76 /* main.m in Sources */,
+				A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */,
+				A20703EE1B3167B000ECFC76 /* TestThreeViewController.m in Sources */,
+				A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HCSinaWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HCSinaWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

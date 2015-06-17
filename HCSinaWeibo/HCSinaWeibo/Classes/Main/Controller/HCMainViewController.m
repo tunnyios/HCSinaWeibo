@@ -7,7 +7,6 @@
 //
 
 #import "HCMainViewController.h"
-#import "UIColor+Tools.h"
 #import "HCHomeTableViewController.h"
 #import "HCMessageTableViewController.h"
 #import "HCProfileTableViewController.h"
@@ -24,26 +23,28 @@
 
     //设置子控制器
     HCHomeTableViewController *homeVc = [[HCHomeTableViewController alloc] init];
-    [self setChildViewControllerProperty:homeVc title:@"首页" image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage imageNamed:@"tabbar_home_selected"]];
+    [self creatChildViewController:homeVc title:@"首页" image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage imageNamed:@"tabbar_home_selected"]];
     
     HCMessageTableViewController *messageVc = [[HCMessageTableViewController alloc] init];
-    [self setChildViewControllerProperty:messageVc title:@"消息" image:[UIImage imageNamed:@"tabbar_message_center"] selectedImage:[UIImage imageNamed:@"tabbar_message_center_selected"]];
-    HCDiscoverTableViewController *discoverVc = [[HCDiscoverTableViewController alloc] init];
-    [self setChildViewControllerProperty:discoverVc title:@"发现" image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageNamed:@"tabbar_discover_selected"]];
-    HCProfileTableViewController *profileVc = [[HCProfileTableViewController alloc] init];
-    [self setChildViewControllerProperty:profileVc title:@"我" image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
+    [self creatChildViewController:messageVc title:@"消息" image:[UIImage imageNamed:@"tabbar_message_center"] selectedImage:[UIImage imageNamed:@"tabbar_message_center_selected"]];
     
+    HCDiscoverTableViewController *discoverVc = [[HCDiscoverTableViewController alloc] init];
+    [self creatChildViewController:discoverVc title:@"发现" image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageNamed:@"tabbar_discover_selected"]];
+    
+    HCProfileTableViewController *profileVc = [[HCProfileTableViewController alloc] init];
+    [self creatChildViewController:profileVc title:@"我" image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
+
 }
 
 /**
- *  设置一个子控制器的tabBarItem属性
+ *  添加一个子控制器的tabBarItem
  *
  *  @param vc            控制器名称
  *  @param title         tabBarItem的标题
  *  @param image         tabBarItem的图片
  *  @param selectedImage 选中的tabBarItem图片
  */
-- (void)setChildViewControllerProperty:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage
+- (void)creatChildViewController:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage
 {
     //设置子控制器
     vc.view.backgroundColor = [UIColor colorWithRandom];
@@ -58,7 +59,11 @@
     UIImage *newImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = newImage;
     
-    [self addChildViewController:vc];
+    //包装一个导航控制器
+    HCNavigationController *navc = [[HCNavigationController alloc] initWithRootViewController:vc];
+    vc.navigationItem.title = title;
+    
+    [self addChildViewController:navc];
 }
 
 - (void)didReceiveMemoryWarning {

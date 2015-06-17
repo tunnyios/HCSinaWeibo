@@ -7,6 +7,7 @@
 //
 
 #import "HCHomeTableViewController.h"
+#import "TestOneViewController.h"
 
 @interface HCHomeTableViewController ()
 
@@ -22,11 +23,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //左边图标
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(leftItemClick:) image:@"navigationbar_friendsearch" heighImage:@"navigationbar_friendsearch_highlighted" title:nil];
+    
+    //右边图标
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightItemClick:) image:@"navigationbar_pop" heighImage:@"navigationbar_pop_highlighted" title:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)leftItemClick:(UIButton *)btn
+{
+    TestOneViewController *oneVc = [[TestOneViewController alloc] init];
+    oneVc.view.backgroundColor = [UIColor colorWithRandom];
+    [self.navigationController pushViewController:oneVc animated:YES];
+}
+
+- (void)rightItemClick:(UIButton *)btn
+{
+    
 }
 
 #pragma mark - Table view data source
