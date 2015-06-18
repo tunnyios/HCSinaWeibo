@@ -38,8 +38,13 @@
 - (void)dropDownMenu:(HCNewTypeButtonView *)button
 {
     //创建下拉菜单
-    
+    HCDropDownMenuView *dropMenu = [HCDropDownMenuView dropDownMenu];
+    //设置下拉菜单内容
+    UITableViewController *contentController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    contentController.view.frame = CGRectMake(0, 0, 200, 200);
+    dropMenu.contentController = contentController;
     //显示
+    [dropMenu showFromView:button];
 }
 
 - (void)leftItemClick:(UIButton *)btn

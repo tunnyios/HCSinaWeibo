@@ -10,4 +10,14 @@
 
 @interface HCDropDownMenuView : UIView
 
+/** 下拉菜单的内容 */
+@property (nonatomic, strong) UIView *content;
+/** 下拉菜单的内容控制器 */
+@property (nonatomic, strong) UIViewController *contentController;
+
++ (instancetype)dropDownMenu;
+
+- (void)showFromView:(UIView *)from;
+
+- (void)disMiss;
 @end
