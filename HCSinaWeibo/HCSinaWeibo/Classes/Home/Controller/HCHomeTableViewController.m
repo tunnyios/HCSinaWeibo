@@ -8,7 +8,8 @@
 
 #import "HCHomeTableViewController.h"
 #import "TestOneViewController.h"
-#import "HCNewTypeButton.h"
+#import "HCNewTypeButtonView.h"
+#import "HCDropDownMenuView.h"
 
 @interface HCHomeTableViewController ()
 
@@ -26,9 +27,19 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightItemClick:) image:@"navigationbar_pop" heighImage:@"navigationbar_pop_highlighted" title:nil];
     
     //中间view
-    HCNewTypeButton *titleBtn = [HCNewTypeButton buttonWithTitle:@"首页" icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
+    HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:@"首页" icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
+    //监听按钮点击，弹出下拉菜单
+    [titleBtn addTarget:self action:@selector(dropDownMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView = titleBtn;
+}
+
+/** 点击首页的下拉菜单 */
+- (void)dropDownMenu:(HCNewTypeButtonView *)button
+{
+    //创建下拉菜单
+    
+    //显示
 }
 
 - (void)leftItemClick:(UIButton *)btn

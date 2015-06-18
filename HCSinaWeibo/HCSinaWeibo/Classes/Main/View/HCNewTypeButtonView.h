@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCNewTypeButton : UIButton
+@interface HCNewTypeButtonView : UIButton
 
 //创建一个新排版的button
 - (instancetype)initWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon;

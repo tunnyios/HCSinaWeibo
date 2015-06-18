@@ -7,7 +7,7 @@
 //
 
 #import "HCDiscoverTableViewController.h"
-#import "HCSearchBar.h"
+#import "HCSearchBarView.h"
 
 @interface HCDiscoverTableViewController ()
 
@@ -24,7 +24,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //添加搜索框
-    HCSearchBar *searchBar = [HCSearchBar searchBarWithFrame:CGRectMake(0, 0, 300, 30)];
+    HCSearchBarView *searchBar = [HCSearchBarView searchBarWithFrame:CGRectMake(0, 0, 300, 30)];
     self.navigationItem.titleView = searchBar;
     
 }

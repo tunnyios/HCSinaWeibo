@@ -21,8 +21,9 @@
 		A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */; };
 		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
 		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
-		A24B6D681B32619700287F51 /* HCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D671B32619700287F51 /* HCSearchBar.m */; };
-		A24B6D6B1B326A6700287F51 /* HCNewTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */; };
+		A24B6D681B32619700287F51 /* HCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D671B32619700287F51 /* HCSearchBarView.m */; };
+		A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */; };
+		A24B6D6E1B3288B100287F51 /* HCDropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
 /* End PBXBuildFile section */
@@ -65,10 +66,12 @@
 		A23C62011B306A89004F86BA /* HCMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMessageTableViewController.m; sourceTree = "<group>"; };
 		A23C62061B306A97004F86BA /* HCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProfileTableViewController.h; sourceTree = "<group>"; };
 		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
-		A24B6D661B32619700287F51 /* HCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSearchBar.h; sourceTree = "<group>"; };
-		A24B6D671B32619700287F51 /* HCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSearchBar.m; sourceTree = "<group>"; };
-		A24B6D691B326A6700287F51 /* HCNewTypeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNewTypeButton.h; sourceTree = "<group>"; };
-		A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNewTypeButton.m; sourceTree = "<group>"; };
+		A24B6D661B32619700287F51 /* HCSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSearchBarView.h; sourceTree = "<group>"; };
+		A24B6D671B32619700287F51 /* HCSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSearchBarView.m; sourceTree = "<group>"; };
+		A24B6D691B326A6700287F51 /* HCNewTypeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNewTypeButtonView.h; sourceTree = "<group>"; };
+		A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNewTypeButtonView.m; sourceTree = "<group>"; };
+		A24B6D6C1B3288B100287F51 /* HCDropDownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDropDownMenuView.h; sourceTree = "<group>"; };
+		A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDropDownMenuView.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -270,10 +273,12 @@
 		A24B6D651B32617D00287F51 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A24B6D661B32619700287F51 /* HCSearchBar.h */,
-				A24B6D671B32619700287F51 /* HCSearchBar.m */,
-				A24B6D691B326A6700287F51 /* HCNewTypeButton.h */,
-				A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */,
+				A24B6D661B32619700287F51 /* HCSearchBarView.h */,
+				A24B6D671B32619700287F51 /* HCSearchBarView.m */,
+				A24B6D691B326A6700287F51 /* HCNewTypeButtonView.h */,
+				A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */,
+				A24B6D6C1B3288B100287F51 /* HCDropDownMenuView.h */,
+				A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,7 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24B6D681B32619700287F51 /* HCSearchBar.m in Sources */,
+				A24B6D681B32619700287F51 /* HCSearchBarView.m in Sources */,
 				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
@@ -485,13 +490,14 @@
 				A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */,
 				A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */,
 				A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */,
+				A24B6D6E1B3288B100287F51 /* HCDropDownMenuView.m in Sources */,
 				A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */,
 				A20703EB1B3167A500ECFC76 /* TestTwoViewController.m in Sources */,
 				A20703DD1B31605600ECFC76 /* main.m in Sources */,
 				A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */,
 				A20703EE1B3167B000ECFC76 /* TestThreeViewController.m in Sources */,
 				A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */,
-				A24B6D6B1B326A6700287F51 /* HCNewTypeButton.m in Sources */,
+				A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

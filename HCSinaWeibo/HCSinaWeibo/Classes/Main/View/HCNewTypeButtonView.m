@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 tunny. All rights reserved.
 //
 
-#import "HCNewTypeButton.h"
+#import "HCNewTypeButtonView.h"
 
-@implementation HCNewTypeButton
+@implementation HCNewTypeButtonView
 
 /** 边距 */
 #define ButtonMargin    1
@@ -86,6 +86,6 @@
  */
 + (instancetype)buttonWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon
 {
-    return [[HCNewTypeButton alloc] initWithTitle:title icon:icon heighIcon:heighIcon];
+    return [[HCNewTypeButtonView alloc] initWithTitle:title icon:icon heighIcon:heighIcon];
 }
 @end

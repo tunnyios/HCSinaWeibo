@@ -1,5 +1,5 @@
 //
-//  HCSearchBar.h
+//  HCDropDownMenu.h
 //  HCSinaWeibo
 //
 //  Created by tunny on 15/6/18.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCSearchBar : UITextField
+@interface HCDropDownMenuView : UIView
 
-+ (instancetype)searchBarWithFrame:(CGRect)frame;
 @end

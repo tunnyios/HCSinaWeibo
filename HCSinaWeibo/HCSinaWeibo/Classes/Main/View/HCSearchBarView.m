@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 tunny. All rights reserved.
 //
 
-#import "HCSearchBar.h"
+#import "HCSearchBarView.h"
 
-@implementation HCSearchBar
+@implementation HCSearchBarView
 
 /**
  *  创建一个搜索框
@@ -20,7 +20,7 @@
 + (instancetype)searchBarWithFrame:(CGRect)frame
 {
     //searchbar basic
-    HCSearchBar *searchBar = [[HCSearchBar alloc] init];
+    HCSearchBarView *searchBar = [[HCSearchBarView alloc] init];
     searchBar.frame = frame;
     searchBar.background = [UIImage imageNamed:@"searchbar_textfield_background"];
     searchBar.font = [UIFont systemFontOfSize:15];
