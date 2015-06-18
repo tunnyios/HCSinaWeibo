@@ -10,6 +10,13 @@
 
 @implementation HCSearchBar
 
+/**
+ *  创建一个搜索框
+ *
+ *  @param frame 搜索框的尺寸和位置
+ *
+ *  @return searchBar
+ */
 + (instancetype)searchBarWithFrame:(CGRect)frame
 {
     //searchbar basic

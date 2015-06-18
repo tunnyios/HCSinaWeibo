@@ -8,6 +8,7 @@
 
 #import "HCHomeTableViewController.h"
 #import "TestOneViewController.h"
+#import "HCNewTypeButton.h"
 
 @interface HCHomeTableViewController ()
 
@@ -18,17 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     //左边图标
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(leftItemClick:) image:@"navigationbar_friendsearch" heighImage:@"navigationbar_friendsearch_highlighted" title:nil];
     
     //右边图标
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightItemClick:) image:@"navigationbar_pop" heighImage:@"navigationbar_pop_highlighted" title:nil];
+    
+    //中间view
+    HCNewTypeButton *titleBtn = [HCNewTypeButton buttonWithTitle:@"首页" icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
+    
+    self.navigationItem.titleView = titleBtn;
 }
 
 - (void)leftItemClick:(UIButton *)btn

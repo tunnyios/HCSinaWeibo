@@ -22,6 +22,7 @@
 		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
 		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
 		A24B6D681B32619700287F51 /* HCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D671B32619700287F51 /* HCSearchBar.m */; };
+		A24B6D6B1B326A6700287F51 /* HCNewTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
 		A24B6D661B32619700287F51 /* HCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSearchBar.h; sourceTree = "<group>"; };
 		A24B6D671B32619700287F51 /* HCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSearchBar.m; sourceTree = "<group>"; };
+		A24B6D691B326A6700287F51 /* HCNewTypeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNewTypeButton.h; sourceTree = "<group>"; };
+		A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNewTypeButton.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 			children = (
 				A24B6D661B32619700287F51 /* HCSearchBar.h */,
 				A24B6D671B32619700287F51 /* HCSearchBar.m */,
+				A24B6D691B326A6700287F51 /* HCNewTypeButton.h */,
+				A24B6D6A1B326A6700287F51 /* HCNewTypeButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */,
 				A20703EE1B3167B000ECFC76 /* TestThreeViewController.m in Sources */,
 				A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */,
+				A24B6D6B1B326A6700287F51 /* HCNewTypeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
