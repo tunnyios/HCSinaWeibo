@@ -10,6 +10,8 @@
 
 @interface HCDropDownMenuView : UIView
 
+/** 下拉菜单容器图片 */
+@property (nonatomic, strong) NSString *containerImage;
 /** 下拉菜单的内容 */
 @property (nonatomic, strong) UIView *content;
 /** 下拉菜单的内容控制器 */

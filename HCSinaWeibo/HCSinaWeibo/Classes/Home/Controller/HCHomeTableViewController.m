@@ -10,6 +10,7 @@
 #import "TestOneViewController.h"
 #import "HCNewTypeButtonView.h"
 #import "HCDropDownMenuView.h"
+#import "HCDropDownRightMenuView.h"
 
 @interface HCHomeTableViewController ()
 
@@ -25,6 +26,7 @@
     
     //右边图标
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightItemClick:) image:@"navigationbar_pop" heighImage:@"navigationbar_pop_highlighted" title:nil];
+    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     
     //中间view
     HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:@"首页" icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
@@ -39,6 +41,8 @@
 {
     //创建下拉菜单
     HCDropDownMenuView *dropMenu = [HCDropDownMenuView dropDownMenu];
+    //设置下拉菜单容器(即背景图片)
+    dropMenu.containerImage = @"popover_background";
     //设置下拉菜单内容
     UITableViewController *contentController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     contentController.view.frame = CGRectMake(0, 0, 200, 200);
@@ -54,9 +58,17 @@
     [self.navigationController pushViewController:oneVc animated:YES];
 }
 
-- (void)rightItemClick:(UIButton *)btn
+/** 点击右边的下拉菜单 */
+- (void)rightItemClick:(UIButton *)button
 {
+    HCDropDownRightMenuView *dropRightMenu = [HCDropDownRightMenuView dropDownMenu];
+    dropRightMenu.containerImage = @"popover_background_right";
     
+    UITableViewController *contentController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    contentController.view.frame = CGRectMake(0, 0, 200, 200);
+    dropRightMenu.contentController = contentController;
+    
+    [dropRightMenu showFromView:button];
 }
 
 #pragma mark - Table view data source

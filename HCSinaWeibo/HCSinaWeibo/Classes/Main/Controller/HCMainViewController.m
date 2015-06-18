@@ -11,8 +11,9 @@
 #import "HCMessageTableViewController.h"
 #import "HCProfileTableViewController.h"
 #import "HCDiscoverTableViewController.h"
+#import "HCTabBar5ContentView.h"
 
-@interface HCMainViewController ()
+@interface HCMainViewController ()<HCTabBar5ContenViewDelegate>
 
 @end
 
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //设置子控制器
+    //1. 设置子控制器
     HCHomeTableViewController *homeVc = [[HCHomeTableViewController alloc] init];
     [self creatChildViewController:homeVc title:@"首页" image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage imageNamed:@"tabbar_home_selected"]];
     
@@ -33,7 +34,13 @@
     
     HCProfileTableViewController *profileVc = [[HCProfileTableViewController alloc] init];
     [self creatChildViewController:profileVc title:@"我" image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
-
+    
+    //2. 用自定义的tabBar更换系统自带的tabBar
+    HCTabBar5ContentView *tabBars = [[HCTabBar5ContentView alloc] init];
+    //设置代理
+    tabBars.tabBardelegate = self;
+//    self.tabBar = tabBar; 系统自带的tabBar是只读的，因此没有提供setter方法，因此只能用KVC赋值
+    [self setValue:tabBars forKey:@"tabBar"];
 }
 
 /**
@@ -66,19 +73,10 @@
     [self addChildViewController:navc];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 自定义tabBar的监听点击代理事件
+- (void)tabBar5ContenViewWithTabBar:(HCTabBar5ContentView *)tabBar
+{
+    HCLog(@"点击了plusButton。。。");
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

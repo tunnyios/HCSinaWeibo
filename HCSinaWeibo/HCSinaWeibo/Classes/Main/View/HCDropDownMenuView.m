@@ -17,15 +17,13 @@
 
 @implementation HCDropDownMenuView
 
--(UIImageView *)container
+- (void)setContainerImage:(NSString *)containerImage
 {
-    if (_container == nil) {
-        _container = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popover_background"]];
-        //设置用户可交互
-        _container.userInteractionEnabled = YES;
-    }
+    _containerImage = containerImage;
     
-    return _container;
+    //创建container
+    self.container = [[UIImageView alloc] initWithImage:[UIImage imageNamed:containerImage]];
+    self.container.userInteractionEnabled = YES;
 }
 
 - (void)setContentController:(UIViewController *)contentController
@@ -82,6 +80,7 @@
 /** 显示下拉菜单 */
 - (void)showFromView:(UIView *)from
 {
+    HCLog(@"sfasdf");
     //1. 设置下拉菜单容器的位置
     //将传入的fromview切换坐标系至窗口
     CGRect viewFrame = [from convertRect:from.bounds toView:nil];
@@ -106,7 +105,7 @@
 
 + (instancetype)dropDownMenu
 {
-    return [[HCDropDownMenuView alloc] init];
+    return [[self alloc] init];
 }
 
 @end

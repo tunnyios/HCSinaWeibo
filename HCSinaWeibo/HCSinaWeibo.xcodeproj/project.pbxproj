@@ -24,6 +24,8 @@
 		A24B6D681B32619700287F51 /* HCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D671B32619700287F51 /* HCSearchBarView.m */; };
 		A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */; };
 		A24B6D6E1B3288B100287F51 /* HCDropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */; };
+		A24B6D711B32D10F00287F51 /* HCTabBar5ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D701B32D10F00287F51 /* HCTabBar5ContentView.m */; };
+		A24B6D741B32E79900287F51 /* HCDropDownRightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D731B32E79900287F51 /* HCDropDownRightMenuView.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,10 @@
 		A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNewTypeButtonView.m; sourceTree = "<group>"; };
 		A24B6D6C1B3288B100287F51 /* HCDropDownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDropDownMenuView.h; sourceTree = "<group>"; };
 		A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDropDownMenuView.m; sourceTree = "<group>"; };
+		A24B6D6F1B32D10F00287F51 /* HCTabBar5ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTabBar5ContentView.h; sourceTree = "<group>"; };
+		A24B6D701B32D10F00287F51 /* HCTabBar5ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabBar5ContentView.m; sourceTree = "<group>"; };
+		A24B6D721B32E79900287F51 /* HCDropDownRightMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDropDownRightMenuView.h; sourceTree = "<group>"; };
+		A24B6D731B32E79900287F51 /* HCDropDownRightMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDropDownRightMenuView.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -279,6 +285,10 @@
 				A24B6D6A1B326A6700287F51 /* HCNewTypeButtonView.m */,
 				A24B6D6C1B3288B100287F51 /* HCDropDownMenuView.h */,
 				A24B6D6D1B3288B100287F51 /* HCDropDownMenuView.m */,
+				A24B6D6F1B32D10F00287F51 /* HCTabBar5ContentView.h */,
+				A24B6D701B32D10F00287F51 /* HCTabBar5ContentView.m */,
+				A24B6D721B32E79900287F51 /* HCDropDownRightMenuView.h */,
+				A24B6D731B32E79900287F51 /* HCDropDownRightMenuView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,10 +492,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24B6D741B32E79900287F51 /* HCDropDownRightMenuView.m in Sources */,
 				A24B6D681B32619700287F51 /* HCSearchBarView.m in Sources */,
 				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
+				A24B6D711B32D10F00287F51 /* HCTabBar5ContentView.m in Sources */,
 				A20703E31B31620700ECFC76 /* UIBarButtonItem+Extension.m in Sources */,
 				A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */,
 				A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */,
