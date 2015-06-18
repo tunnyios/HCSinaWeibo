@@ -80,7 +80,6 @@
 /** 显示下拉菜单 */
 - (void)showFromView:(UIView *)from
 {
-    HCLog(@"sfasdf");
     //1. 设置下拉菜单容器的位置
     //将传入的fromview切换坐标系至窗口
     CGRect viewFrame = [from convertRect:from.bounds toView:nil];
@@ -101,6 +100,11 @@
 - (void)disMiss
 {
     [self removeFromSuperview];
+    
+    //销毁下拉菜单时，通知控制器切换button图片箭头向下
+    if (self.block) {
+        self.block();
+    }
 }
 
 + (instancetype)dropDownMenu

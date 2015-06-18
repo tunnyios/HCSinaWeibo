@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^HCDropDownMenuViewBlock)();
+
 @interface HCDropDownMenuView : UIView
 
 /** 下拉菜单容器图片 */
@@ -17,9 +19,13 @@
 /** 下拉菜单的内容控制器 */
 @property (nonatomic, strong) UIViewController *contentController;
 
+@property (nonatomic, strong) HCDropDownMenuViewBlock block;
+
 + (instancetype)dropDownMenu;
 
+/** 显示 */
 - (void)showFromView:(UIView *)from;
 
+/** 销毁 */
 - (void)disMiss;
 @end

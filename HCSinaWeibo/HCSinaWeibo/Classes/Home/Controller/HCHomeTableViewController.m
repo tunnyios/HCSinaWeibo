@@ -29,7 +29,7 @@
     self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     
     //中间view
-    HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:@"首页" icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
+    HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:@"首页" icon:@"navigationbar_arrow_down" heighIcon:@"navigationbar_arrow_down"];
     //监听按钮点击，弹出下拉菜单
     [titleBtn addTarget:self action:@selector(dropDownMenu:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -39,6 +39,9 @@
 /** 点击首页的下拉菜单 */
 - (void)dropDownMenu:(HCNewTypeButtonView *)button
 {
+    //0. 设置button图片箭头向上
+    [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    
     //创建下拉菜单
     HCDropDownMenuView *dropMenu = [HCDropDownMenuView dropDownMenu];
     //设置下拉菜单容器(即背景图片)
@@ -49,6 +52,11 @@
     dropMenu.contentController = contentController;
     //显示
     [dropMenu showFromView:button];
+    
+    //dorpMenu的block,下拉菜单销毁，修改button的image
+    dropMenu.block = ^(){
+        [button setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    };
 }
 
 - (void)leftItemClick:(UIButton *)btn
