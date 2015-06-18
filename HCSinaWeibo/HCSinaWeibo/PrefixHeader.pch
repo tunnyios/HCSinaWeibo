@@ -36,5 +36,11 @@
 #import "UIColor+Tools.h"
 #import "HCNavigationController.h"
 
+#ifdef  DEBUG
+    #define HCLog(...)  NSLog(__VA_ARGS__)
+#else
+    #define HCLog(...)
+#endif
+
 
 #endif

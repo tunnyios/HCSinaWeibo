@@ -52,15 +52,14 @@
 {
     if (1 == self.viewControllers.count) {   //第2个push进来的控制器
         
-        NSLog(@"title--%@--", [self.viewControllers[0] navigationItem].title);
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:nil heighImage:nil title:[self.viewControllers[0] navigationItem].title];
         
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" heighImage:@"navigationbar_pop_highlighted" title:nil];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" heighImage:@"navigationbar_more_highlighted" title:nil];
     } else if (self.viewControllers.count > 1) {   //其他push进来的控制器
         
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"navigationbar_back" heighImage:@"navigationbar_back_highlighted" title:nil];
         
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" heighImage:@"navigationbar_pop_highlighted" title:nil];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" heighImage:@"navigationbar_more_highlighted" title:nil];
     }
     
     [super pushViewController:viewController animated:animated];
@@ -69,12 +68,12 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
-    NSLog(@"pop...back");
+    HCLog(@"pop...back");
 }
 
 - (void)more
 {
-    NSLog(@"push...more");
+    HCLog(@"push...more");
 }
 
 @end

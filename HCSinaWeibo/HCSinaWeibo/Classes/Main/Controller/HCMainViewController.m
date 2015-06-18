@@ -47,7 +47,7 @@
 - (void)creatChildViewController:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage
 {
     //设置子控制器
-    vc.view.backgroundColor = [UIColor colorWithRandom];
+//    vc.view.backgroundColor = [UIColor colorWithRandom];
     //设置选中字体颜色
     NSDictionary *titleFont = @{NSFontAttributeName : [UIFont systemFontOfSize:13],
                                 NSForegroundColorAttributeName : [UIColor orangeColor]

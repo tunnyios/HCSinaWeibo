@@ -28,12 +28,14 @@
     
     //右边图标
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发消息" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    //只有当主题加载完成后，再设置enable才有用
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //只能在此处设置barButtonItem的状态
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
