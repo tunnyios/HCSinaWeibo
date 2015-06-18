@@ -81,8 +81,7 @@
  *  @param title     标题
  *  @param icon      普通图标
  *  @param heighIcon 高亮图标
- *
- *  @return
+ * 
  */
 + (instancetype)buttonWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon
 {
