@@ -21,6 +21,7 @@
 		A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C61FB1B306A7B004F86BA /* HCHomeTableViewController.m */; };
 		A23C62041B306A89004F86BA /* HCMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62011B306A89004F86BA /* HCMessageTableViewController.m */; };
 		A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23C62071B306A97004F86BA /* HCProfileTableViewController.m */; };
+		A24B6D681B32619700287F51 /* HCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6D671B32619700287F51 /* HCSearchBar.m */; };
 		A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2599B0A1B2FF8D900CD133B /* Images.xcassets */; };
 		A2599B1A1B2FF8D900CD133B /* HCSinaWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2599B191B2FF8D900CD133B /* HCSinaWeiboTests.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		A23C62011B306A89004F86BA /* HCMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMessageTableViewController.m; sourceTree = "<group>"; };
 		A23C62061B306A97004F86BA /* HCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProfileTableViewController.h; sourceTree = "<group>"; };
 		A23C62071B306A97004F86BA /* HCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProfileTableViewController.m; sourceTree = "<group>"; };
+		A24B6D661B32619700287F51 /* HCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSearchBar.h; sourceTree = "<group>"; };
+		A24B6D671B32619700287F51 /* HCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSearchBar.m; sourceTree = "<group>"; };
 		A2599AFA1B2FF8D900CD133B /* HCSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2599AFE1B2FF8D900CD133B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2599B0A1B2FF8D900CD133B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -261,6 +264,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A24B6D651B32617D00287F51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A24B6D661B32619700287F51 /* HCSearchBar.h */,
+				A24B6D671B32619700287F51 /* HCSearchBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A2599AF11B2FF8D800CD133B = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +345,7 @@
 		A2599B241B304A3D00CD133B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A24B6D651B32617D00287F51 /* View */,
 				A20703F21B316BC800ECFC76 /* Controller */,
 				A20703D71B31605600ECFC76 /* Category */,
 				A20703D81B31605600ECFC76 /* Other */,
@@ -459,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24B6D681B32619700287F51 /* HCSearchBar.m in Sources */,
 				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23C61FE1B306A7B004F86BA /* HCHomeTableViewController.m in Sources */,
