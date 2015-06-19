@@ -10,6 +10,7 @@
 #import "HCMainViewController.h"
 #import "HCNewFeatureViewController.h"
 #import "HCOAuthViewController.h"
+#import "HCAccount.h"
 
 
 @interface AppDelegate ()
@@ -29,8 +30,8 @@
         判断如果沙盒中有account.plist文件，则说明已经授权过
      */
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
-    NSDictionary *account = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
+    HCAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     
     if (account) {
         /**

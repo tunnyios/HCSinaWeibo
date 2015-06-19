@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import "HCMainViewController.h"
 #import "HCNewFeatureViewController.h"
+#import "HCAccount.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface HCOAuthViewController ()<UIWebViewDelegate>
 
@@ -33,6 +35,16 @@
 }
 
 #pragma  mark - webView的代理事件
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [MBProgressHUD showMessage:@"正在加载..."];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideHUD];
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 //    HCLog(@"---%@---", request);
@@ -45,6 +57,9 @@
         
         //3. 发送一个正常的请求获取，取得access Token
         [self accessTokenWithCode:code];
+        
+        //禁止跳转至回调页面
+        return NO;
     }
 
     return YES;
@@ -68,11 +83,17 @@
     params[@"code"] = code;
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        HCLog(@"请求成功---%@---", responseObject);
+        [MBProgressHUD hideHUD];
+//        HCLog(@"请求成功---%@---", responseObject);
+        
+        //将responseObject字典转成模型
+        HCAccount *account = [HCAccount accountWithDict:responseObject];
+        
         //将返回的数据存储到沙盒
         NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
-        [responseObject writeToFile:path atomically:YES];
+        NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
+        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        
         
         //判断是否需要展示新特性，否则展示主视图
         NSString *key = @"CFBundleVersion";
@@ -91,6 +112,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         HCLog(@"请求失败---%@---", error);
     }];
 }
