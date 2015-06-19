@@ -42,7 +42,7 @@
     //设置button位置
     CGFloat btnW = titleFrame.size.width + imageSize.width + ButtonMargin * 4;
     CGFloat btnH = (titleFrame.size.height > imageSize.height) ? titleFrame.size.height : imageSize.height;
-    self.frame = CGRectMake(0, 0, btnW, btnH);
+    self.bounds = CGRectMake(0, 0, btnW, btnH);
     
     //修改title和image的内边距
     CGFloat titleMargin = imageSize.width + ButtonMargin;
