@@ -8,10 +8,9 @@
 
 #import "HCOAuthViewController.h"
 #import "AFNetworking.h"
-#import "HCMainViewController.h"
-#import "HCNewFeatureViewController.h"
 #import "HCAccount.h"
 #import "MBProgressHUD+MJ.h"
+#import "HCAccountTools.h"
 
 @interface HCOAuthViewController ()<UIWebViewDelegate>
 
@@ -23,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //创建UIWebView发送请求，获取未授权的Request Token
+    //1. 创建UIWebView发送请求，获取未授权的Request Token
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.delegate = self;
     [self.view addSubview:webView];
@@ -90,26 +89,10 @@
         HCAccount *account = [HCAccount accountWithDict:responseObject];
         
         //将返回的数据存储到沙盒
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
-        
+        [HCAccountTools saveAccountWithAccount:account];
         
         //判断是否需要展示新特性，否则展示主视图
-        NSString *key = @"CFBundleVersion";
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *savedVersion = [defaults objectForKey:key];
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-        if ([savedVersion isEqualToString:currentVersion]) {
-            //不需要展示新特性
-            window.rootViewController = [[HCMainViewController alloc] init];
-        } else {
-            //展示新特性
-            window.rootViewController = [[HCNewFeatureViewController alloc] init];
-            //将新版本号存入沙盒
-            [defaults setObject:currentVersion forKey:key];
-        }
+        [UIWindow switchRootViewController];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];

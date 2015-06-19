@@ -39,6 +39,7 @@
     [aCoder encodeObject:self.access_token forKey:@"access_token"];
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
+    [aCoder encodeObject:self.created_time forKey:@"created_time"];
 }
 
 /** 解档 */
@@ -46,9 +47,10 @@
 {
     self = [super init];
     if (self) {
-        [aDecoder decodeObjectForKey:@"access_token"];
-        [aDecoder decodeObjectForKey:@"expires_in"];
-        [aDecoder decodeObjectForKey:@"uid"];
+        self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
+        self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
+        self.uid = [aDecoder decodeObjectForKey:@"uid"];
+        self.created_time = [aDecoder decodeObjectForKey:@"created_time"];
     }
     
     return self;

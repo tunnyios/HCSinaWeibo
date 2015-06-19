@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "HCMainViewController.h"
-#import "HCNewFeatureViewController.h"
 #import "HCOAuthViewController.h"
 #import "HCAccount.h"
+#import "HCAccountTools.h"
 
 
 @interface AppDelegate ()
@@ -22,48 +21,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //创建窗口
+    //1. 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-    //设置根控制器
-    /**
-        判断如果沙盒中有account.plist文件，则说明已经授权过
-     */
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
-    HCAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    //2. 设置为主窗口并显示
+    [self.window makeKeyAndVisible];
     
+    //3。 设置根控制器
+    //获取账户
+    HCAccount *account = [HCAccountTools account];
     if (account) {
-        /**
-         *  1. 取沙盒中的版本号
-         *  2. 取info.plist中的版本号
-         *  3. 比较，如果一致，说明已经显示过新特性了，跳转至主控制器
-         *  4. 如果不一致，则将新版本号存入沙盒，跳转至新特性控制器
-         */
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *savedVersion = [defaults objectForKey:@"CFBundleVersion"];
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-        if ([savedVersion isEqualToString:currentVersion]) {
-            //相等
-            HCMainViewController *tabBarController = [[HCMainViewController alloc] init];
-            self.window.rootViewController = tabBarController;
-        } else {
-            //不等...新特性
-            self.window.rootViewController = [[HCNewFeatureViewController alloc] init];
-            //存入沙盒
-            [defaults setObject:currentVersion forKey:@"CFBundleVersion"];
-            [defaults synchronize];
-        }
-        
+        //切换控制器
+        [UIWindow switchRootViewController];
     } else {
         //如果没有， 则加载授权
         self.window.rootViewController = [[HCOAuthViewController alloc] init];
     }
-    
 
-    //设置为主窗口并显示
-    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
