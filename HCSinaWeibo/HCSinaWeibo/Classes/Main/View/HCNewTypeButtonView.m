@@ -66,7 +66,7 @@
     if (self) {
         if (title && icon) {
             //1. 设置title和图片
-            [self setBtnTitle:title icon:@"timeline_icon_more_highlighted" heighIcon:@"timeline_icon_more"];
+            [self setBtnTitle:title icon:icon heighIcon:heighIcon];
             
             //2. 计算title的frame,并设置內边距
             [self setBtnFrame];
@@ -87,4 +87,25 @@
 {
     return [[HCNewTypeButtonView alloc] initWithTitle:title icon:icon heighIcon:heighIcon];
 }
+
+
+/**
+ *  更新button的content
+ *
+ *  @param title     newTitle
+ *  @param icon      newImage
+ *  @param heighIcon newImage
+ */
+- (void)setTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon
+{
+    if (title && icon) {
+        //1. 设置title和图片
+        [self setBtnTitle:title icon:icon heighIcon:heighIcon];
+        
+        //2. 计算title的frame,并设置內边距
+        [self setBtnFrame];
+    }
+}
+
+
 @end

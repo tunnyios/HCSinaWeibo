@@ -91,7 +91,7 @@
 #pragma mark - 自定义tabBar的监听点击代理事件
 - (void)tabBar5ContenViewWithTabBar:(HCTabBar5ContentView *)tabBar
 {
-    HCLog(@"点击了plusButton。。。");
+    DLog(@"点击了plusButton。。。");
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compose_slogan"]];

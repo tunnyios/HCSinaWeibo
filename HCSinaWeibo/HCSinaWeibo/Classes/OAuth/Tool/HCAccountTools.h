@@ -7,9 +7,9 @@
 //  定义一些与账户相关的方法：账户存储、账户读取、账户验证是否过期
 
 #import <Foundation/Foundation.h>
+#import "HCAccount.h"
 
 
-@class HCAccount;
 @interface HCAccountTools : NSObject
 
 /** 存储账户 */

@@ -14,4 +14,7 @@
 - (instancetype)initWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon;
 
 + (instancetype)buttonWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon;
+
+/** 更新button的content */
+- (void)setTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon;
 @end

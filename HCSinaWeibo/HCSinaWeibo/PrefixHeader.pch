@@ -38,9 +38,9 @@
 #import "UIWindow+Extension.h"
 
 #ifdef  DEBUG
-    #define HCLog(...)  NSLog(__VA_ARGS__)
+#define DLog( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #else
-    #define HCLog(...)
+#define DLog( s, ... )
 #endif
 
 

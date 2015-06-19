@@ -68,12 +68,12 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
-    HCLog(@"pop...back");
+    DLog(@"pop...back");
 }
 
 - (void)more
 {
-    HCLog(@"push...more");
+    DLog(@"push...more");
 }
 
 @end

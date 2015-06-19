@@ -24,6 +24,8 @@
 @property (nonatomic, copy) NSString *uid;
 /** 授权时的日期 */
 @property (nonatomic, strong) NSDate *created_time;
+/** 授权用户的昵称 */
+@property (nonatomic, copy) NSString *screen_name;
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

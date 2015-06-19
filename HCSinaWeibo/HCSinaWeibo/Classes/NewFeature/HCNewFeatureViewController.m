@@ -71,7 +71,7 @@
 - (void)pageChanged:(UIPageControl *)pageControl
 {
     //如果点击位置在当前位置左边，则value － 1，否则value ＋ 1
-//    HCLog(@"--%ld--", (long)pageControl.currentPage);
+//    DLog(@"--%ld--", (long)pageControl.currentPage);
     //根据当前的page修改scrollView的偏移
     CGFloat offsetX = pageControl.currentPage * self.view.bounds.size.width;
     self.scrollView.contentOffset = CGPointMake(offsetX, 0);

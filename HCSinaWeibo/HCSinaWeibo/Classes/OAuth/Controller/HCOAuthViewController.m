@@ -46,7 +46,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-//    HCLog(@"---%@---", request);
+//    DLog(@"---%@---", request);
     //2. 拦截返回的url，取出code
     NSString *urlStr = [request.URL absoluteString];
     
@@ -83,7 +83,7 @@
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [MBProgressHUD hideHUD];
-//        HCLog(@"请求成功---%@---", responseObject);
+//        DLog(@"请求成功---%@---", responseObject);
         
         //将responseObject字典转成模型
         HCAccount *account = [HCAccount accountWithDict:responseObject];
@@ -96,7 +96,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];
-        HCLog(@"请求失败---%@---", error);
+        DLog(@"请求失败---%@---", error);
     }];
 }
 

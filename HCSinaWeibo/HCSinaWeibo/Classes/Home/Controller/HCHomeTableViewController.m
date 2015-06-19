@@ -11,6 +11,8 @@
 #import "HCNewTypeButtonView.h"
 #import "HCDropDownMenuView.h"
 #import "HCDropDownRightMenuView.h"
+#import "AFNetworking.h"
+#import "HCAccountTools.h"
 
 @interface HCHomeTableViewController ()
 
@@ -21,6 +23,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    HCAccount *account = [HCAccountTools account];
+    
+    //1. 设置home控制器的导航栏item
+    [self setupNavItemWithAccount:account];
+    
+    //2. 发送请求获取用户信息(用户昵称)
+    [self setUserNameWithAccount:account];
+}
+
+/**
+ *  发送请求获取用户信息(用户昵称)
+ */
+- (void)setUserNameWithAccount:(HCAccount *)account
+{
+    //发送请求
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        //获取用户昵称,并设置
+        NSString *userName = responseObject[@"screen_name"];
+        HCNewTypeButtonView *button = (HCNewTypeButtonView *)self.navigationItem.titleView;
+        [button setTitle:userName icon:@"navigationbar_arrow_down" heighIcon:@"navigationbar_arrow_down"];
+        
+        //将userName存储到沙盒,下次启动直接取
+        account.screen_name = userName;
+        [HCAccountTools saveAccountWithAccount:account];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
+/**
+ *  设置home控制器的导航栏item
+ */
+- (void)setupNavItemWithAccount:(HCAccount *)account
+{
     //左边图标
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(leftItemClick:) image:@"navigationbar_friendsearch" heighImage:@"navigationbar_friendsearch_highlighted" title:nil];
     
@@ -28,8 +71,8 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightItemClick:) image:@"navigationbar_pop" heighImage:@"navigationbar_pop_highlighted" title:nil];
     self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     
-    //中间view
-    HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:@"首页" icon:@"navigationbar_arrow_down" heighIcon:@"navigationbar_arrow_down"];
+    //中间view,先取沙盒中的title
+    HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:(account.screen_name ? account.screen_name : @"首页") icon:@"navigationbar_arrow_down" heighIcon:@"navigationbar_arrow_down"];
     //监听按钮点击，弹出下拉菜单
     [titleBtn addTarget:self action:@selector(dropDownMenu:) forControlEvents:UIControlEventTouchUpInside];
     

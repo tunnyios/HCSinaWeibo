@@ -21,6 +21,8 @@
         self.access_token = dict[@"access_token"];
         self.expires_in = dict[@"expires_in"];
         self.uid = dict[@"uid"];
+        //将授权时的日期存入沙盒
+        self.created_time = [NSDate date];
     }
     
     return self;
@@ -40,6 +42,7 @@
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
     [aCoder encodeObject:self.created_time forKey:@"created_time"];
+    [aCoder encodeObject:self.screen_name forKey:@"screen_name"];
 }
 
 /** 解档 */
@@ -51,6 +54,7 @@
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
         self.created_time = [aDecoder decodeObjectForKey:@"created_time"];
+        self.screen_name = [aDecoder decodeObjectForKey:@"screen_name"];
     }
     
     return self;

@@ -21,9 +21,6 @@
  */
 + (void)saveAccountWithAccount:(HCAccount *)account
 {
-    //将授权时的日期存入沙盒
-    account.created_time = [NSDate date];
-    
     [NSKeyedArchiver archiveRootObject:account toFile:HCAccountPath];
 }
 
@@ -46,7 +43,7 @@
         return nil;
     }
     
-    HCLog(@"--%@--%@--", currentDate, expiresDate);
+    DLog(@"--%@--%@--", currentDate, expiresDate);
     return account;
 }
 
