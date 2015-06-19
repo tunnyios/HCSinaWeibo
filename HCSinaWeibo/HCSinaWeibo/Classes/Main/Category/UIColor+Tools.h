@@ -10,6 +10,14 @@
 
 @interface UIColor (Tools)
 
+/**
+ *  随机色
+ */
 + (instancetype)colorWithRandom;
+
+/**
+ *  RGBA色
+ */
++ (instancetype)colorWithR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b A:(CGFloat)a;
 
 @end

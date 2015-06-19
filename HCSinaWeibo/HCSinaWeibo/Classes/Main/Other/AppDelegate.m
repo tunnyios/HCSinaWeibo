@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HCMainViewController.h"
+#import "HCNewFeatureViewController.h"
 
 
 @interface AppDelegate ()
@@ -22,8 +23,9 @@
     //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //设置根控制器
-    HCMainViewController *tabBarController = [[HCMainViewController alloc] init];
-    self.window.rootViewController = tabBarController;
+//    HCMainViewController *tabBarController = [[HCMainViewController alloc] init];
+//    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = [[HCNewFeatureViewController alloc] init];
 
     //设置为主窗口并显示
     [self.window makeKeyAndVisible];

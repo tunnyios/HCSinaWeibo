@@ -41,6 +41,21 @@
     tabBars.tabBardelegate = self;
 //    self.tabBar = tabBar; 系统自带的tabBar是只读的，因此没有提供setter方法，因此只能用KVC赋值
     [self setValue:tabBars forKey:@"tabBar"];
+//    tabBars.tabBardelegate = self;
+    /*
+     [self setValue:tabBar forKeyPath:@"tabBar"];相当于self.tabBar = tabBar;
+     [self setValue:tabBar forKeyPath:@"tabBar"];这行代码过后，tabBar的delegate就是HWTabBarViewController
+     说明，不用再设置tabBar.delegate = self;
+     */
+    
+    /*
+     1.如果tabBar设置完delegate后，再执行下面代码修改delegate，就会报错
+     tabBar.delegate = self;
+     
+     2.如果再次修改tabBar的delegate属性，就会报下面的错误
+     错误信息：Changing the delegate of a tab bar managed by a tab bar controller is not allowed.
+     错误意思：不允许修改TabBar的delegate属性(这个TabBar是被TabBarViewController所管理的)
+     */
 }
 
 /**
@@ -77,6 +92,16 @@
 - (void)tabBar5ContenViewWithTabBar:(HCTabBar5ContentView *)tabBar
 {
     HCLog(@"点击了plusButton。。。");
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compose_slogan"]];
+    CGRect frame = imageView.frame;
+    frame.origin = CGPointMake(50, 100);
+    imageView.frame = frame;
+    [vc.view addSubview:imageView];
+    
+    [self presentViewController:vc animated:NO completion:nil];
+    
 }
 
 @end
