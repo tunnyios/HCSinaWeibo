@@ -13,12 +13,34 @@
 #import "HCDropDownRightMenuView.h"
 #import "AFNetworking.h"
 #import "HCAccountTools.h"
+#import "HCStatus.h"
+#import "HCUser.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+
+
+typedef enum : NSUInteger {
+    HCSendRequestTypeDown,  //下拉刷新
+    HCSendRequestTypeUp,    //上拉刷新
+    
+} HCSendRequestType;
 
 @interface HCHomeTableViewController ()
+/** 微博数组 */
+@property (nonatomic, strong) NSMutableArray *statusList;
 
 @end
 
 @implementation HCHomeTableViewController
+
+- (NSMutableArray *)statusList
+{
+    if (_statusList == nil) {
+        _statusList = [NSMutableArray array];
+    }
+    
+    return _statusList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +52,80 @@
     
     //2. 发送请求获取用户信息(用户昵称)
     [self setUserNameWithAccount:account];
+    
+    //3. 设置下拉刷新
+    [self refreshStatus];
+}
+
+/**
+ *  实现下拉刷新(apple自带下拉刷新控件)
+ */
+- (void)refreshStatus
+{
+    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    
+    [control addTarget:self action:@selector(dropDownRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:control];
+}
+
+/**
+ *  下拉刷新控件的监听事件
+ *  下拉刷新获取数据
+ *  @param control
+ */
+- (void)dropDownRefresh:(UIRefreshControl *)control
+{
+    //1. 发送请求获取数据
+    [self sendRequestForDataWithType:HCSendRequestTypeDown];
+    
+    //2. 关闭刷新
+    [control endRefreshing];
+}
+
+/**
+ *  向服务器发送请求，获取微博数据
+ *
+ *  @param type 上拉刷新/下拉刷新
+ */
+- (void)sendRequestForDataWithType:(HCSendRequestType)type
+{
+    //1. 发送请求
+    HCAccount *account = [HCAccountTools account];
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    dict[@"access_token"] = account.access_token;
+
+    if (HCSendRequestTypeDown == type) {
+        dict[@"since_id"] = [[self.statusList firstObject] idStr];
+    } else {
+        dict[@"since_id"] = [[self.statusList lastObject] idStr];
+    }
+    
+    [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        DLog(@"请求成功.--%@--", responseObject);
+        
+        //将微博字典数组－－－>微博模型数组
+        NSArray *newArray = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        //将新数据添加到微博数组中
+        if (HCSendRequestTypeDown == type) {
+            //插入
+            NSRange range = NSMakeRange(0, newArray.count);
+            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+            [self.statusList insertObjects:newArray atIndexes:indexSet];
+        } else {
+            //追加
+            [self.statusList addObjectsFromArray:newArray];
+        }
+        
+        //刷新数据
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DLog(@"请求失败.--%@--", error);
+    }];
 }
 
 /**
@@ -124,27 +220,30 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    
+    return self.statusList.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
     
-    // Configure the cell...
+    //设置数据
+    HCStatus *status = self.statusList[indexPath.row];
+    cell.textLabel.text = status.user.name;
+    cell.detailTextLabel.text = status.text;
     
+    NSURL *url = [NSURL URLWithString:status.user.profile_image_url];
+    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

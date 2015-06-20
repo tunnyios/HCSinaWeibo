@@ -43,7 +43,7 @@
         return nil;
     }
     
-    DLog(@"--%@--%@--", currentDate, expiresDate);
+//    DLog(@"--%@--%@--", currentDate, expiresDate);
     return account;
 }
 
