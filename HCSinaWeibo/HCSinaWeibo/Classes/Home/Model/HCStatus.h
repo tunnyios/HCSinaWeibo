@@ -12,7 +12,7 @@
 @interface HCStatus : NSObject
 
 /** 微博ID */
-@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, copy) NSString *idstr;
 
 /** 微博内容 */
 @property (nonatomic, copy) NSString *text;

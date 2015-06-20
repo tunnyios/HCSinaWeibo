@@ -14,7 +14,7 @@
 @property (nonatomic, copy) NSString *name;
 
 /** 用户ID */
-@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, copy) NSString *idstr;
 
 /** 用户头像URL */
 @property (nonatomic, copy) NSString *profile_image_url;

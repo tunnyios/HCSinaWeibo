@@ -54,19 +54,37 @@ typedef enum : NSUInteger {
     [self setUserNameWithAccount:account];
     
     //3. 设置下拉刷新
-    [self refreshStatus];
+    [self dropDownRefreshStatus];
+    
+    //4. 设置上拉刷新
+    
+}
+
+/**
+ *  实现上拉刷新
+ */
+- (void)dropUpRefreshStatus
+{
+    //添加footView
+    
 }
 
 /**
  *  实现下拉刷新(apple自带下拉刷新控件)
  */
-- (void)refreshStatus
+- (void)dropDownRefreshStatus
 {
+    //1. 添加刷新控件
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    
+    //只有用户通过手动下拉刷新，才会出发valueChanged事件
     [control addTarget:self action:@selector(dropDownRefresh:) forControlEvents:UIControlEventValueChanged];
-    
     [self.tableView addSubview:control];
+    
+    //2. 开始刷新(只是显示刷新，但是valueChange并不会改变)
+    [control beginRefreshing];
+    
+    //3. 刷新
+    [self dropDownRefresh:control];
 }
 
 /**
@@ -98,13 +116,14 @@ typedef enum : NSUInteger {
     dict[@"access_token"] = account.access_token;
 
     if (HCSendRequestTypeDown == type) {
-        dict[@"since_id"] = [[self.statusList firstObject] idStr];
+        NSString *since_id = [[self.statusList firstObject] idstr];
+        dict[@"since_id"] = since_id ? since_id : @"0";
     } else {
-        dict[@"since_id"] = [[self.statusList lastObject] idStr];
+        NSString *max_id = [[self.statusList lastObject] idstr];
+        dict[@"max_id"] = max_id ? max_id : @"0";
     }
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        DLog(@"请求成功.--%@--", responseObject);
         
         //将微博字典数组－－－>微博模型数组
         NSArray *newArray = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
@@ -120,11 +139,51 @@ typedef enum : NSUInteger {
             [self.statusList addObjectsFromArray:newArray];
         }
         
+        //添加view显示此次刷新更新了多少条信息
+        [self showNewStatusCount:(unsigned long)newArray.count];
+        
         //刷新数据
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         DLog(@"请求失败.--%@--", error);
+    }];
+}
+
+/**
+ *  添加一条label，显示此次刷新加载了多少条数据
+ *
+ *  @param count
+ */
+- (void)showNewStatusCount:(unsigned long)count
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 64 - 30, HCScreenWidth, 30)];
+    
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor whiteColor];
+    if (count != 0) {
+        label.text = [NSString stringWithFormat:@"此次更新了%lu条微博数据", count];
+    } else {
+        label.text = @"没有新的微博数据，请稍后再试";
+    }
+    
+    //此处把label添加到导航栏下面更好，label不会跟着tableView到处跑
+//    [self.tableView addSubview:label];
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+
+    //添加动画
+    double duration = 1.0;
+    [UIView animateWithDuration:duration animations:^{
+        label.transform = CGAffineTransformMakeTranslation(0, label.bounds.size.height);
+    } completion:^(BOOL finished) {
+        //UIViewAnimationOptionCurveLinear: 线性的，表示匀速
+        [UIView animateWithDuration:duration delay:duration options:UIViewAnimationOptionCurveLinear animations:^{
+        label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
     }];
 }
 
