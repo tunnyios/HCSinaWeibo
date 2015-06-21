@@ -12,6 +12,13 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define HCStatusNameFont    [UIFont systemFontOfSize:15]
+#define HCStatusTimeFont    [UIFont systemFontOfSize:10]
+#define HCStatusSourceFont  [UIFont systemFontOfSize:10]
+#define HCStatusContentFont [UIFont systemFontOfSize:15]
+
+
 @class HCStatus;
 @interface HCStatusFrames : NSObject
 /** 原创微博 */
@@ -28,6 +35,8 @@
 @property (nonatomic, assign) CGRect sourceLabelF;
 /** 微博正文 */
 @property (nonatomic, assign) CGRect contentLabelF;
+/** 微博配图 */
+@property (nonatomic, assign) CGRect photoViewF;
 
 /** cell高度 */
 @property (nonatomic, assign) CGFloat cellHeight;

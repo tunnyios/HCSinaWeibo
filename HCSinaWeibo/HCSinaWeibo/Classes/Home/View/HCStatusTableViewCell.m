@@ -27,6 +27,8 @@
 @property (nonatomic, weak) UILabel *sourceLabel;
 /** 微博正文 */
 @property (nonatomic, weak) UILabel *contentLabel;
+/** 微博配图 */
+@property (nonatomic, weak) UIImageView *photoView;
 
 
 
@@ -51,7 +53,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {     //初始化子控件
+    if (self) {     //初始化子控件, 并设置一些唯一属性
         /** 原创微博 */
         UIView *originalView = [[UIView alloc] init];
         [self.contentView addSubview:originalView];
@@ -64,6 +66,7 @@
         
         /** 昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
+        nameLabel.font = HCStatusNameFont;
         [self.originalView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
@@ -74,16 +77,20 @@
         
         /** 微博发布时间 */
         UILabel *timeLabel = [[UILabel alloc] init];
+        timeLabel.font = HCStatusTimeFont;
         [self.originalView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
         /** 微博来源 */
         UILabel *sourceLabel = [[UILabel alloc] init];
+        sourceLabel.font = HCStatusSourceFont;
         [self.originalView addSubview:sourceLabel];
         self.sourceLabel = sourceLabel;
         
         /** 微博正文 */
         UILabel *contentLabel = [[UILabel alloc] init];
+        contentLabel.font = HCStatusContentFont;
+        contentLabel.numberOfLines = 0;
         [self.originalView addSubview:contentLabel];
         self.contentLabel = contentLabel;
 
@@ -113,13 +120,32 @@
     /** 昵称 */
     self.nameLabel.frame = statusFrames.nameLabelF;
     self.nameLabel.text = user.name;
+    if (user.vip) {
+        self.nameLabel.textColor = [UIColor redColor];
+    } else {
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
     
     /** 会员 */
     self.vipView.frame = statusFrames.vipViewF;
+    if (user.vip) {
+        NSString *imageStr = nil;
+        if (user.mbrank > 6) {
+            imageStr = @"common_icon_membership";
+        } else if (user.mbrank < 1) {
+            imageStr = @"common_icon_membership_expired";
+        } else {
+            imageStr = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
+        }
+        self.vipView.image = [UIImage imageNamed:imageStr];
+    }
     
     /** 微博发布时间 */
     self.timeLabel.frame = statusFrames.timeLabelF;
-    self.timeLabel.text = status.created_at;
+#warning sssssssss
+//    self.timeLabel.text = status.created_at;
+    self.timeLabel.text = @"刚刚";
+    self.timeLabel.textColor = [UIColor orangeColor];
     
     /** 微博来源 */
     self.sourceLabel.frame = statusFrames.sourceLabelF;
