@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class HCUser;
+@class HCUser, HCStatus;
 @interface HCStatus : NSObject
 
 /** 微博ID */
@@ -28,6 +28,9 @@
 
 /** 微博配图数组 */
 @property (nonatomic, strong) NSArray *pic_urls;
+
+/** 转发微博属性 */
+@property (nonatomic, strong) HCStatus *retweeted_status;
 
 
 @end

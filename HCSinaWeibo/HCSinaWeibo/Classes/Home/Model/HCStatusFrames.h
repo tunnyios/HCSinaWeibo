@@ -38,6 +38,13 @@
 /** 微博配图 */
 @property (nonatomic, assign) CGRect photoViewF;
 
+/** 转发微博 */
+@property (nonatomic, assign) CGRect retweetedViewF;
+/** 转发微博正文 */
+@property (nonatomic, assign) CGRect retweeted_contentLabelF;
+/** 转发微博配图 */
+@property (nonatomic, assign) CGRect retweeted_photoViewF;
+
 /** cell高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
 

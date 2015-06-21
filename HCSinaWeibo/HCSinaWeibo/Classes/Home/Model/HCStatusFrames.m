@@ -36,6 +36,63 @@
 - (void)setStatus:(HCStatus *)status
 {
     _status = status;
+    
+    //1. 设置原创微博View的frame
+    [self setOriginalViewFramesWithStatus:status];
+    
+    //2. 设置转发微博View的frame
+    if (status.retweeted_status) {
+        [self setRetweetedViewFramesWithStatus:status];
+        /** cell高度 */
+        self.cellHeight = CGRectGetMaxY(self.originalViewF) + self.retweetedViewF.size.height + HCStatusCellBorderW;
+    } else {
+        /** cell高度 */
+        self.cellHeight = CGRectGetMaxY(self.originalViewF) + HCStatusCellBorderW;
+    }
+    
+    
+}
+
+/**
+ *  设置转发微博View的frame
+ */
+- (void)setRetweetedViewFramesWithStatus:(HCStatus *)status
+{
+    HCStatus *retweeted_status = status.retweeted_status;
+    HCUser *retweeted_user = retweeted_status.user;
+    
+    /** 转发微博正文 */
+    CGFloat contentX = HCStatusCellBorderW;
+    CGFloat contentY = HCStatusCellBorderW;
+    CGFloat maxWidth = HCScreenWidth - HCStatusCellBorderW - HCStatusCellBorderW * 2;
+    //取正文
+    NSString *contentStr = [NSString stringWithFormat:@"@%@:%@", retweeted_user.name, retweeted_status.text];
+    CGSize contentSize = [self textSizeWithText:contentStr font:HCStatusContentFont MaxWidth:maxWidth];
+    self.retweeted_contentLabelF = (CGRect){{contentX, contentY}, contentSize};
+    
+    /** 转发微博配图 */
+    CGFloat retweetedH = 0;
+    if (retweeted_status.pic_urls.count) {
+        CGFloat photoX = HCStatusCellBorderW;
+        CGFloat photoY = CGRectGetMaxY(self.retweeted_contentLabelF) + HCStatusCellBorderW;
+        CGFloat photoWH = 100;
+        self.retweeted_photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        
+        retweetedH = CGRectGetMaxY(self.retweeted_photoViewF);
+    } else {
+        retweetedH = CGRectGetMaxY(self.retweeted_contentLabelF);
+    }
+    
+    /** 转发微博 */
+    CGFloat retweetedY = CGRectGetMaxY(self.originalViewF);
+    self.retweetedViewF = CGRectMake(0, retweetedY, HCScreenWidth, retweetedH);
+}
+
+/**
+ *  设置原创微博View的frame
+ */
+- (void)setOriginalViewFramesWithStatus:(HCStatus *)status
+{
     HCUser *user = status.user;
     
     /** 头像 */
@@ -48,16 +105,15 @@
     CGSize nameSize = [self textSizeWithText:user.name font:HCStatusNameFont MaxWidth:CGFLOAT_MAX];
     CGFloat nameX = CGRectGetMaxX(self.iconViewF) + HCStatusCellBorderW;
     CGFloat nameY = iconY;
-    CGFloat nameW = nameSize.width;
-    CGFloat nameH = nameSize.height;
-    self.nameLabelF = CGRectMake(nameX, nameY, nameW, nameH);
+//    self.nameLabelF = CGRectMake(nameX, nameY, nameW, nameH);
+    self.nameLabelF = (CGRect){{nameX, nameY}, nameSize};
     
     /** 会员 */
     if (user.vip) {
         CGFloat vipX = CGRectGetMaxX(self.nameLabelF) + HCStatusCellBorderW * 0.5;
         CGFloat vipY = iconY;
         CGFloat vipW = 15;
-        CGFloat vipH = nameH;
+        CGFloat vipH = nameSize.height;
         self.vipViewF = CGRectMake(vipX, vipY, vipW, vipH);
     } else {
         self.vipViewF = CGRectZero;
@@ -67,26 +123,23 @@
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + HCStatusCellBorderW * 0.3;
     CGSize timeSize = [self textSizeWithText:@"刚刚" font:HCStatusTimeFont MaxWidth:CGFLOAT_MAX];
-    CGFloat timeW = timeSize.width;
-    CGFloat timeH = timeSize.height;
-    self.timeLabelF = CGRectMake(timeX, timeY, timeW, timeH);
+//    self.timeLabelF = CGRectMake(timeX, timeY, timeW, timeH);
+    self.timeLabelF = (CGRect){{timeX, timeY}, timeSize};
     
     /** 微博来源 */
     CGFloat sourceX = CGRectGetMaxX(self.timeLabelF) + HCStatusCellBorderW * 0.5;
     CGFloat sourceY = timeY;
     CGSize sourceSize = [self textSizeWithText:status.source font:HCStatusSourceFont MaxWidth:CGFLOAT_MAX];
-    CGFloat sourceW = sourceSize.width;
-    CGFloat sourceH = sourceSize.height;
-    self.sourceLabelF = CGRectMake(sourceX, sourceY, sourceW, sourceH);
+//    self.sourceLabelF = CGRectMake(sourceX, sourceY, sourceW, sourceH);
+    self.sourceLabelF = (CGRect){{sourceX, sourceY}, sourceSize};
     
     /** 微博正文 */
     CGFloat contentX = HCStatusCellBorderW;
     CGFloat contentY = MAX(CGRectGetMaxY(self.iconViewF), CGRectGetMaxY(self.timeLabelF)) + HCStatusCellBorderW;
     CGFloat maxWidth = HCScreenWidth - HCStatusCellBorderW - HCStatusCellBorderW * 2;
     CGSize contentSize = [self textSizeWithText:status.text font:HCStatusContentFont MaxWidth:maxWidth];
-    CGFloat contentW = contentSize.width;
-    CGFloat contentH = contentSize.height;
-    self.contentLabelF = CGRectMake(contentX, contentY, contentW, contentH);
+//    self.contentLabelF = CGRectMake(contentX, contentY, contentW, contentH);
+    self.contentLabelF = (CGRect){{contentX, contentY}, contentSize};
     
     /** 微博配图 */
     CGFloat originalH = 0;
@@ -103,11 +156,6 @@
     
     /** 原创微博 */
     self.originalViewF = CGRectMake(0, 0, HCScreenWidth, originalH);
-    
-    /** cell高度 */
-    self.cellHeight = CGRectGetMaxY(self.originalViewF) + HCStatusCellBorderW;
-    
-    
 }
 
 @end

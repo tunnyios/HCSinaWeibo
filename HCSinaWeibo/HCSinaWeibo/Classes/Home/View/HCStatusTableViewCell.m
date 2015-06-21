@@ -31,6 +31,12 @@
 /** 微博配图 */
 @property (nonatomic, weak) UIImageView *photoView;
 
+/** 转发微博 */
+@property (nonatomic, weak) UIView *retweetedView;
+/** 转发微博微博正文 */
+@property (nonatomic, weak) UILabel *retweeted_contentLabel;
+/** 转发微博配图 */
+@property (nonatomic, weak) UIImageView *retweeted_photoView;
 
 
 @end
@@ -55,52 +61,12 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {     //初始化子控件, 并设置一些唯一属性
-        /** 原创微博 */
-        UIView *originalView = [[UIView alloc] init];
-        [self.contentView addSubview:originalView];
-        self.originalView = originalView;
+        //1. 创建原创微博View
+        [self creatOriginalStatusView];
         
-        /** 头像 */
-        UIImageView *iconView = [[UIImageView alloc] init];
-        [self.originalView addSubview:iconView];
-        self.iconView = iconView;
+        //2. 创建转发微博View
+        [self creatRetweetedStatusView];
         
-        /** 昵称 */
-        UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.font = HCStatusNameFont;
-        [self.originalView addSubview:nameLabel];
-        self.nameLabel = nameLabel;
-        
-        /** 会员 */
-        UIImageView *vipView = [[UIImageView alloc] init];
-        [self.originalView addSubview:vipView];
-        self.vipView = vipView;
-        
-        /** 微博发布时间 */
-        UILabel *timeLabel = [[UILabel alloc] init];
-        timeLabel.font = HCStatusTimeFont;
-        [self.originalView addSubview:timeLabel];
-        self.timeLabel = timeLabel;
-        
-        /** 微博来源 */
-        UILabel *sourceLabel = [[UILabel alloc] init];
-        sourceLabel.font = HCStatusSourceFont;
-        [self.originalView addSubview:sourceLabel];
-        self.sourceLabel = sourceLabel;
-        
-        /** 微博正文 */
-        UILabel *contentLabel = [[UILabel alloc] init];
-        contentLabel.font = HCStatusContentFont;
-        contentLabel.numberOfLines = 0;
-        [self.originalView addSubview:contentLabel];
-        self.contentLabel = contentLabel;
-        
-        /** 微博配图 */
-        UIImageView *photoView = [[UIImageView alloc] init];
-        [self.originalView addSubview:photoView];
-        self.photoView = photoView;
-
-
     }
     
     return self;
@@ -112,13 +78,131 @@
 - (void)setStatusFrames:(HCStatusFrames *)statusFrames
 {
     _statusFrames = statusFrames;
-    
     HCStatus *status = statusFrames.status;
     HCUser *user = status.user;
     
+    //设置原创微博View的内容和位置
+    [self setOriginalViewContentAndFrames:statusFrames status:status user:user];
+    
+    //设置转发微博View的内容和位置
+    if (self.statusFrames.status.retweeted_status) {
+        [self setRetweetedViewContentAndFrames:statusFrames status:status];
+        self.retweetedView.hidden = NO;
+    }else {
+        self.retweetedView.hidden = YES;
+    }
+
+}
+
+/**
+ *  创建转发微博View
+ */
+- (void)creatRetweetedStatusView
+{
+    /** 转发微博 */
+    UIView *retweetedView = [[UIView alloc] init];
+    retweetedView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_retweet_background"]];
+    [self.contentView addSubview:retweetedView];
+    self.retweetedView = retweetedView;
+    
+    /** 转发微博正文 */
+    UILabel *retweeted_contentLabel = [[UILabel alloc] init];
+    retweeted_contentLabel.font = HCStatusContentFont;
+    retweeted_contentLabel.numberOfLines = 0;
+    [self.retweetedView addSubview:retweeted_contentLabel];
+    self.retweeted_contentLabel = retweeted_contentLabel;
+    
+    /** 转发微博配图 */
+    UIImageView *retweeted_photoView = [[UIImageView alloc] init];
+    [self.retweetedView addSubview:retweeted_photoView];
+    self.retweeted_photoView = retweeted_photoView;
+}
+
+/**
+ *  设置转发微博View的内容和位置
+ */
+- (void)setRetweetedViewContentAndFrames:(HCStatusFrames *)statusFrames status:(HCStatus *)status
+{
+    HCStatus *retweeted_status = status.retweeted_status;
+    HCUser *retweeted_user = retweeted_status.user;
+    
+    /** 转发微博 */
+    self.retweetedView.frame = statusFrames.retweetedViewF;
+    
+    /** 转发微博正文 */
+    self.retweeted_contentLabel.frame = statusFrames.retweeted_contentLabelF;
+    NSString *contentStr = [NSString stringWithFormat:@"@%@:%@", retweeted_user.name, retweeted_status.text];
+    self.retweeted_contentLabel.text = contentStr;
+    
+    /** 转发微博配图 */
+    if (retweeted_status.pic_urls.count) {
+        self.retweeted_photoView.hidden = NO;
+        self.retweeted_photoView.frame = statusFrames.retweeted_photoViewF;
+        NSURL *photoUrl = [NSURL URLWithString:[[retweeted_status.pic_urls firstObject] thumbnail_pic]];
+        [self.retweeted_photoView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    } else {
+        self.retweeted_photoView.hidden = YES;
+    }
+}
+
+/**
+ *  创建原创微博View控件
+ */
+- (void)creatOriginalStatusView
+{
+    /** 原创微博 */
+    UIView *originalView = [[UIView alloc] init];
+    [self.contentView addSubview:originalView];
+    self.originalView = originalView;
+    
+    /** 头像 */
+    UIImageView *iconView = [[UIImageView alloc] init];
+    [self.originalView addSubview:iconView];
+    self.iconView = iconView;
+    
+    /** 昵称 */
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.font = HCStatusNameFont;
+    [self.originalView addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    
+    /** 会员 */
+    UIImageView *vipView = [[UIImageView alloc] init];
+    [self.originalView addSubview:vipView];
+    self.vipView = vipView;
+    
+    /** 微博发布时间 */
+    UILabel *timeLabel = [[UILabel alloc] init];
+    timeLabel.font = HCStatusTimeFont;
+    [self.originalView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    
+    /** 微博来源 */
+    UILabel *sourceLabel = [[UILabel alloc] init];
+    sourceLabel.font = HCStatusSourceFont;
+    [self.originalView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
+    
+    /** 微博正文 */
+    UILabel *contentLabel = [[UILabel alloc] init];
+    contentLabel.font = HCStatusContentFont;
+    contentLabel.numberOfLines = 0;
+    [self.originalView addSubview:contentLabel];
+    self.contentLabel = contentLabel;
+    
+    /** 微博配图 */
+    UIImageView *photoView = [[UIImageView alloc] init];
+    [self.originalView addSubview:photoView];
+    self.photoView = photoView;
+}
+
+/**
+ *  设置原创微博View的内容和位置
+ */
+- (void)setOriginalViewContentAndFrames:(HCStatusFrames *)statusFrames status:(HCStatus *)status user:(HCUser *)user
+{
     /** 原创微博 */
     self.originalView.frame = statusFrames.originalViewF;
-    self.originalView.backgroundColor = [UIColor redColor];
     
     /** 头像 */
     self.iconView.frame = statusFrames.iconViewF;
@@ -151,7 +235,7 @@
     /** 微博发布时间 */
     self.timeLabel.frame = statusFrames.timeLabelF;
 #warning sssssssss
-//    self.timeLabel.text = status.created_at;
+    //    self.timeLabel.text = status.created_at;
     self.timeLabel.text = @"刚刚";
     self.timeLabel.textColor = [UIColor orangeColor];
     
