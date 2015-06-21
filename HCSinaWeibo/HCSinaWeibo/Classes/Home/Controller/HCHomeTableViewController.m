@@ -17,6 +17,7 @@
 #import "HCUser.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
+#import "HCLoadFooterView.h"
 
 
 typedef enum : NSUInteger {
@@ -57,18 +58,22 @@ typedef enum : NSUInteger {
     [self dropDownRefreshStatus];
     
     //4. 设置上拉刷新
-    
+    [self dropUpRefreshStatus];
 }
 
+#pragma mark - 上拉刷新
 /**
  *  实现上拉刷新
  */
 - (void)dropUpRefreshStatus
 {
     //添加footView
-    
+    HCLoadFooterView *footer = [HCLoadFooterView footer];
+    footer.hidden = YES;
+    self.tableView.tableFooterView = footer;
 }
 
+#pragma mark - 下拉刷新
 /**
  *  实现下拉刷新(apple自带下拉刷新控件)
  */
@@ -101,6 +106,7 @@ typedef enum : NSUInteger {
     [control endRefreshing];
 }
 
+#pragma mark 发送请求，获取微博数据
 /**
  *  向服务器发送请求，获取微博数据
  *
@@ -214,6 +220,7 @@ typedef enum : NSUInteger {
     }];
 }
 
+#pragma mark home导航栏item设置
 /**
  *  设置home控制器的导航栏item
  */
@@ -303,49 +310,31 @@ typedef enum : NSUInteger {
     return cell;
 }
 
+#pragma mark - scrollerView的代理事件，监听scrollerView的滚动，上拉刷新
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+/**
+ *  scrollView滚动到底部后，完成上拉刷新
+ *
+ *  @param scrollView
+ */
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.statusList.count == 0 || [self.tableView.tableFooterView isHidden] == NO) {
+        return;
+    }
+    
+    CGFloat OffsetY = scrollView.contentOffset.y;
+    //最后一个cell完全显示时的偏移量
+    CGFloat lastOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.bounds.size.height - self.tableView.tableFooterView.bounds.size.height;
+    
+    if (OffsetY > lastOffsetY) {
+        //显示footerView、并刷新数据
+        self.tableView.tableFooterView.hidden = NO;
+        
+        [self sendRequestForDataWithType:HCSendRequestTypeUp];
+        DLog(@"刷新数据,--%f--%f--", OffsetY, lastOffsetY);
+        
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

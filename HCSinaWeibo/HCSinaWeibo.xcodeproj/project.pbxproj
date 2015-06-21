@@ -16,6 +16,8 @@
 		A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F01B31696800ECFC76 /* UIColor+Tools.m */; };
 		A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F41B316BC800ECFC76 /* HCMainViewController.m */; };
 		A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F71B316BEF00ECFC76 /* HCNavigationController.m */; };
+		A2166F7D1B3581FF004F697B /* HCLoadFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */; };
+		A2166F7F1B358217004F697B /* HCLoadFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2166F7E1B358217004F697B /* HCLoadFooterView.xib */; };
 		A23B14851B354A6E007D6727 /* HCStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B14841B354A6E007D6727 /* HCStatus.m */; };
 		A23B14881B354A80007D6727 /* HCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B14871B354A80007D6727 /* HCUser.m */; };
 		A23B149B1B354BE0007D6727 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B148B1B354BE0007D6727 /* MJConst.m */; };
@@ -103,6 +105,9 @@
 		A20703F41B316BC800ECFC76 /* HCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainViewController.m; sourceTree = "<group>"; };
 		A20703F61B316BEF00ECFC76 /* HCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationController.h; sourceTree = "<group>"; };
 		A20703F71B316BEF00ECFC76 /* HCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNavigationController.m; sourceTree = "<group>"; };
+		A2166F7B1B3581FF004F697B /* HCLoadFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLoadFooterView.h; sourceTree = "<group>"; };
+		A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLoadFooterView.m; sourceTree = "<group>"; };
+		A2166F7E1B358217004F697B /* HCLoadFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCLoadFooterView.xib; sourceTree = "<group>"; };
 		A23B14831B354A6E007D6727 /* HCStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatus.h; sourceTree = "<group>"; };
 		A23B14841B354A6E007D6727 /* HCStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatus.m; sourceTree = "<group>"; };
 		A23B14861B354A80007D6727 /* HCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUser.h; sourceTree = "<group>"; };
@@ -275,6 +280,16 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A2166F7A1B3581DB004F697B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A2166F7B1B3581FF004F697B /* HCLoadFooterView.h */,
+				A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */,
+				A2166F7E1B358217004F697B /* HCLoadFooterView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A23B14891B354BE0007D6727 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,9 +374,9 @@
 		A23C61E41B3068CE004F86BA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A2166F7A1B3581DB004F697B /* View */,
 				A23C61F91B306A7B004F86BA /* Controller */,
 				A23C61FC1B306A7B004F86BA /* Model */,
-				A23C61FD1B306A7B004F86BA /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -427,13 +442,6 @@
 				A23B14871B354A80007D6727 /* HCUser.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A23C61FD1B306A7B004F86BA /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A23C61FF1B306A89004F86BA /* Controller */ = {
@@ -771,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */,
+				A2166F7F1B358217004F697B /* HCLoadFooterView.xib in Resources */,
 				A29DE3281B343017000B0AD7 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +814,7 @@
 				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A29DE2A21B33F074000B0AD7 /* AFURLSessionManager.m in Sources */,
 				A24B6D781B33034E00287F51 /* HCNewFeatureViewController.m in Sources */,
+				A2166F7D1B3581FF004F697B /* HCLoadFooterView.m in Sources */,
 				A23B14CC1B355236007D6727 /* SDWebImageDecoder.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
 				A23B14D51B355236007D6727 /* UIImageView+HighlightedWebCache.m in Sources */,
