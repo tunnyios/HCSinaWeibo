@@ -11,7 +11,7 @@
 @implementation HCNewTypeButtonView
 
 /** 边距 */
-#define ButtonMargin    1
+#define ButtonMargin    2
 
 /**
  *  设置按钮的title和图片

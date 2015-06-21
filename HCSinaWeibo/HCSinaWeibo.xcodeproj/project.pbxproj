@@ -37,6 +37,7 @@
 		A226AD9D1B36499C0066AC9B /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD881B36499C0066AC9B /* UIScrollView+MJExtension.m */; };
 		A226AD9E1B36499C0066AC9B /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD8A1B36499C0066AC9B /* UIScrollView+MJRefresh.m */; };
 		A226AD9F1B36499C0066AC9B /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD8C1B36499C0066AC9B /* UIView+MJExtension.m */; };
+		A226ADA51B366BCA0066AC9B /* HCStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A226ADA41B366BCA0066AC9B /* HCStatusTableViewCell.m */; };
 		A23B14851B354A6E007D6727 /* HCStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B14841B354A6E007D6727 /* HCStatus.m */; };
 		A23B14881B354A80007D6727 /* HCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B14871B354A80007D6727 /* HCUser.m */; };
 		A23B149B1B354BE0007D6727 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A23B148B1B354BE0007D6727 /* MJConst.m */; };
@@ -93,6 +94,9 @@
 		A29DE3291B343017000B0AD7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A29DE3261B343017000B0AD7 /* MBProgressHUD.m */; };
 		A29DE32D1B3438F5000B0AD7 /* HCAccountTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A29DE32C1B3438F5000B0AD7 /* HCAccountTools.m */; };
 		A29DE3301B344249000B0AD7 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A29DE32F1B344249000B0AD7 /* UIWindow+Extension.m */; };
+		A2B705E41B3672C0005B9919 /* HCStatusFrames.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B705E31B3672C0005B9919 /* HCStatusFrames.m */; };
+		A2B705E61B368B26005B9919 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B705E51B368B26005B9919 /* Reveal.framework */; };
+		A2B705E81B368BAC005B9919 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B705E71B368BAC005B9919 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +169,8 @@
 		A226AD8A1B36499C0066AC9B /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		A226AD8B1B36499C0066AC9B /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		A226AD8C1B36499C0066AC9B /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		A226ADA31B366BCA0066AC9B /* HCStatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatusTableViewCell.h; sourceTree = "<group>"; };
+		A226ADA41B366BCA0066AC9B /* HCStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatusTableViewCell.m; sourceTree = "<group>"; };
 		A23B14831B354A6E007D6727 /* HCStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatus.h; sourceTree = "<group>"; };
 		A23B14841B354A6E007D6727 /* HCStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatus.m; sourceTree = "<group>"; };
 		A23B14861B354A80007D6727 /* HCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUser.h; sourceTree = "<group>"; };
@@ -280,6 +286,10 @@
 		A29DE32C1B3438F5000B0AD7 /* HCAccountTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAccountTools.m; sourceTree = "<group>"; };
 		A29DE32E1B344249000B0AD7 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		A29DE32F1B344249000B0AD7 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		A2B705E21B3672C0005B9919 /* HCStatusFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatusFrames.h; sourceTree = "<group>"; };
+		A2B705E31B3672C0005B9919 /* HCStatusFrames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatusFrames.m; sourceTree = "<group>"; };
+		A2B705E51B368B26005B9919 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		A2B705E71B368BAC005B9919 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +297,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B705E81B368BAC005B9919 /* libz.dylib in Frameworks */,
 				A23C61E21B306129004F86BA /* UIKit.framework in Frameworks */,
+				A2B705E61B368B26005B9919 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +355,8 @@
 				A2166F7B1B3581FF004F697B /* HCLoadFooterView.h */,
 				A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */,
 				A2166F7E1B358217004F697B /* HCLoadFooterView.xib */,
+				A226ADA31B366BCA0066AC9B /* HCStatusTableViewCell.h */,
+				A226ADA41B366BCA0066AC9B /* HCStatusTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,6 +604,8 @@
 				A23B14841B354A6E007D6727 /* HCStatus.m */,
 				A23B14861B354A80007D6727 /* HCUser.h */,
 				A23B14871B354A80007D6727 /* HCUser.m */,
+				A2B705E21B3672C0005B9919 /* HCStatusFrames.h */,
+				A2B705E31B3672C0005B9919 /* HCStatusFrames.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,6 +685,8 @@
 		A2599AF11B2FF8D800CD133B = {
 			isa = PBXGroup;
 			children = (
+				A2B705E71B368BAC005B9919 /* libz.dylib */,
+				A2B705E51B368B26005B9919 /* Reveal.framework */,
 				A23C61E11B306129004F86BA /* UIKit.framework */,
 				A2599AFC1B2FF8D900CD133B /* HCSinaWeibo */,
 				A2599B161B2FF8D900CD133B /* HCSinaWeiboTests */,
@@ -998,6 +1016,7 @@
 				A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */,
 				A23B149C1B354BE0007D6727 /* MJFoundation.m in Sources */,
 				A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */,
+				A226ADA51B366BCA0066AC9B /* HCStatusTableViewCell.m in Sources */,
 				A24B6D6E1B3288B100287F51 /* HCDropDownMenuView.m in Sources */,
 				A29DE29C1B33F074000B0AD7 /* AFHTTPSessionManager.m in Sources */,
 				A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */,
@@ -1029,6 +1048,7 @@
 				A29DE29D1B33F074000B0AD7 /* AFNetworkReachabilityManager.m in Sources */,
 				A226AD961B36499C0066AC9B /* MJRefreshBackNormalFooter.m in Sources */,
 				A29DE2A11B33F074000B0AD7 /* AFURLResponseSerialization.m in Sources */,
+				A2B705E41B3672C0005B9919 /* HCStatusFrames.m in Sources */,
 				A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,9 +1157,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HCSinaWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1149,9 +1174,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HCSinaWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = HCSinaWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

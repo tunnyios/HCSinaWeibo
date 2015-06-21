@@ -19,6 +19,8 @@
 #import "UIImageView+WebCache.h"
 #import "HCLoadFooterView.h"
 #import "MJRefresh.h"
+#import "HCStatusTableViewCell.h"
+#import "HCStatusFrames.h"
 
 
 typedef enum : NSUInteger {
@@ -28,20 +30,22 @@ typedef enum : NSUInteger {
 } HCSendRequestType;
 
 @interface HCHomeTableViewController ()
-/** 微博数组 */
-@property (nonatomic, strong) NSMutableArray *statusList;
+/**
+ *  微博数组（里面放的都是HCStatusFrames模型，一个HCStatusFrames对象就代表一条微博）
+ */
+@property (nonatomic, strong) NSMutableArray *statusFramesList;
 
 @end
 
 @implementation HCHomeTableViewController
 
-- (NSMutableArray *)statusList
+- (NSMutableArray *)statusFramesList
 {
-    if (_statusList == nil) {
-        _statusList = [NSMutableArray array];
+    if (_statusFramesList == nil) {
+        _statusFramesList = [NSMutableArray array];
     }
     
-    return _statusList;
+    return _statusFramesList;
 }
 
 - (void)viewDidLoad {
@@ -122,31 +126,40 @@ typedef enum : NSUInteger {
     dict[@"access_token"] = account.access_token;
 
     if (HCSendRequestTypeDown == type) {
-        NSString *since_id = [[self.statusList firstObject] idstr];
+        NSString *since_id = [[self.statusFramesList firstObject] status].idstr;
         dict[@"since_id"] = since_id ? since_id : @"0";
     } else {
-        NSString *max_id = [[self.statusList lastObject] idstr];
+        NSString *max_id = [[self.statusFramesList lastObject] status].idstr;
         dict[@"max_id"] = max_id ? max_id : @"0";
     }
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //将微博字典数组－－－>微博模型数组
-        NSArray *newArray = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatuses = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+//        NSMutableArray *newStatusFrames = [NSMutableArray array];
+        //将status模型转换成statusFrames模型
+        NSArray *newStatusFrames = [self statusFramesWihtStatus:newStatuses];
+//        [newStatuses enumerateObjectsUsingBlock:^(HCStatus *status, NSUInteger idx, BOOL *stop) {
+//            HCStatusFrames *statusFrames = [[HCStatusFrames alloc] init];
+//            statusFrames.status = status;
+//            [newStatusFrames addObject:statusFrames];
+//        }];
         
         //将新数据添加到微博数组中
         if (HCSendRequestTypeDown == type) {
             //插入
-            NSRange range = NSMakeRange(0, newArray.count);
+            NSRange range = NSMakeRange(0, newStatusFrames.count);
             NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-            [self.statusList insertObjects:newArray atIndexes:indexSet];
+            [self.statusFramesList insertObjects:newStatusFrames atIndexes:indexSet];
         } else {
             //追加
-            [self.statusList addObjectsFromArray:newArray];
+            [self.statusFramesList addObjectsFromArray:newStatusFrames];
         }
         
         //添加view显示此次刷新更新了多少条信息
-        [self showNewStatusCount:(unsigned long)newArray.count];
+        [self showNewStatusCount:(unsigned long)newStatusFrames.count];
         
         //刷新数据
         [self.tableView reloadData];
@@ -154,6 +167,22 @@ typedef enum : NSUInteger {
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         DLog(@"请求失败.--%@--", error);
     }];
+}
+
+/**
+ *  将status模型转换成statusFrames模型
+ */
+- (NSArray *)statusFramesWihtStatus:(NSArray *)newStatuses
+{
+    NSMutableArray *newStatusFrames = [NSMutableArray array];
+    //将status模型转换成statusFrames模型
+    [newStatuses enumerateObjectsUsingBlock:^(HCStatus *status, NSUInteger idx, BOOL *stop) {
+        HCStatusFrames *statusFrames = [[HCStatusFrames alloc] init];
+        statusFrames.status = status;
+        [newStatusFrames addObject:statusFrames];
+    }];
+    
+    return newStatusFrames;
 }
 
 /**
@@ -288,26 +317,24 @@ typedef enum : NSUInteger {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.statusList.count;
+    return self.statusFramesList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    //初始化cell
+    HCStatusTableViewCell *cell = [HCStatusTableViewCell statusWithTableView:tableView];
     
     //设置数据
-    HCStatus *status = self.statusList[indexPath.row];
-    cell.textLabel.text = status.user.name;
-    cell.detailTextLabel.text = status.text;
-    
-    NSURL *url = [NSURL URLWithString:status.user.profile_image_url];
-    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    HCStatusFrames *statusFrames = self.statusFramesList[indexPath.row];
+    cell.statusFrames = statusFrames;
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.statusFramesList[indexPath.row] cellHeight];
 }
 
 
