@@ -10,6 +10,7 @@
 #import "HCStatusFrames.h"
 #import "HCStatus.h"
 #import "HCUser.h"
+#import "HCPhoto.h"
 #import "UIImageView+WebCache.h"
 
 @interface HCStatusTableViewCell()
@@ -93,6 +94,12 @@
         contentLabel.numberOfLines = 0;
         [self.originalView addSubview:contentLabel];
         self.contentLabel = contentLabel;
+        
+        /** 微博配图 */
+        UIImageView *photoView = [[UIImageView alloc] init];
+        [self.originalView addSubview:photoView];
+        self.photoView = photoView;
+
 
     }
     
@@ -111,11 +118,12 @@
     
     /** 原创微博 */
     self.originalView.frame = statusFrames.originalViewF;
+    self.originalView.backgroundColor = [UIColor redColor];
     
     /** 头像 */
     self.iconView.frame = statusFrames.iconViewF;
-    NSURL *url = [NSURL URLWithString:user.profile_image_url];
-    [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+    NSURL *iconUrl = [NSURL URLWithString:user.profile_image_url];
+    [self.iconView sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"avatar_default"]];
     
     /** 昵称 */
     self.nameLabel.frame = statusFrames.nameLabelF;
@@ -154,6 +162,16 @@
     /** 微博正文 */
     self.contentLabel.frame = statusFrames.contentLabelF;
     self.contentLabel.text = status.text;
+    
+    /** 微博配图 */
+    if (status.pic_urls.count) {
+        self.photoView.hidden = NO;
+        self.photoView.frame = statusFrames.photoViewF;
+        NSURL *photoUrl = [NSURL URLWithString:[[status.pic_urls firstObject] thumbnail_pic]];
+        [self.photoView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    } else {
+        self.photoView.hidden = YES;
+    }
 }
 
 

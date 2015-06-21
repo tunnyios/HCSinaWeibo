@@ -7,7 +7,14 @@
 //
 
 #import "HCStatus.h"
+#import "HCPhoto.h"
+#import "MJExtension.h"
 
 @implementation HCStatus
+
++ (NSDictionary *)objectClassInArray
+{
+    return @{@"pic_urls" : [HCPhoto class]};
+}
 
 @end

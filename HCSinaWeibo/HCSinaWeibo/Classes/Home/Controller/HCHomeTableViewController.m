@@ -134,18 +134,13 @@ typedef enum : NSUInteger {
     }
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        DLog(@"---%@--", responseObject);
         
         //将微博字典数组－－－>微博模型数组
         NSArray *newStatuses = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
-//        NSMutableArray *newStatusFrames = [NSMutableArray array];
         //将status模型转换成statusFrames模型
         NSArray *newStatusFrames = [self statusFramesWihtStatus:newStatuses];
-//        [newStatuses enumerateObjectsUsingBlock:^(HCStatus *status, NSUInteger idx, BOOL *stop) {
-//            HCStatusFrames *statusFrames = [[HCStatusFrames alloc] init];
-//            statusFrames.status = status;
-//            [newStatusFrames addObject:statusFrames];
-//        }];
         
         //将新数据添加到微博数组中
         if (HCSendRequestTypeDown == type) {

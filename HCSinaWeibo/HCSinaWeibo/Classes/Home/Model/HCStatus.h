@@ -26,5 +26,8 @@
 /** 微博作者的用户信息字段 */
 @property (nonatomic, strong) HCUser *user;
 
+/** 微博配图数组 */
+@property (nonatomic, strong) NSArray *pic_urls;
+
 
 @end
