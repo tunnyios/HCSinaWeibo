@@ -18,6 +18,7 @@
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "HCLoadFooterView.h"
+#import "MJRefresh.h"
 
 
 typedef enum : NSUInteger {
@@ -63,33 +64,32 @@ typedef enum : NSUInteger {
 
 #pragma mark - 上拉刷新
 /**
- *  实现上拉刷新
+ *  实现上拉刷新(使用MJRefresh框架)
  */
 - (void)dropUpRefreshStatus
 {
-    //添加footView
-    HCLoadFooterView *footer = [HCLoadFooterView footer];
-    footer.hidden = YES;
-    self.tableView.tableFooterView = footer;
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+
+- (void)loadMoreData
+{
+    [self sendRequestForDataWithType:HCSendRequestTypeUp];
+    
+    [self.tableView.footer endRefreshing];
 }
 
 #pragma mark - 下拉刷新
 /**
- *  实现下拉刷新(apple自带下拉刷新控件)
+ *  实现下拉刷新(使用MJRefresh框架)
  */
 - (void)dropDownRefreshStatus
 {
-    //1. 添加刷新控件
-    UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    //只有用户通过手动下拉刷新，才会出发valueChanged事件
-    [control addTarget:self action:@selector(dropDownRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:control];
+    //添加刷新控件
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     
-    //2. 开始刷新(只是显示刷新，但是valueChange并不会改变)
-    [control beginRefreshing];
-    
-    //3. 刷新
-    [self dropDownRefresh:control];
+    // 马上进入刷新状态
+    [self.tableView.header beginRefreshing];
 }
 
 /**
@@ -97,13 +97,13 @@ typedef enum : NSUInteger {
  *  下拉刷新获取数据
  *  @param control
  */
-- (void)dropDownRefresh:(UIRefreshControl *)control
+- (void)loadNewData
 {
     //1. 发送请求获取数据
     [self sendRequestForDataWithType:HCSendRequestTypeDown];
     
     //2. 关闭刷新
-    [control endRefreshing];
+    [self.tableView.header endRefreshing];
 }
 
 #pragma mark 发送请求，获取微博数据
@@ -310,31 +310,5 @@ typedef enum : NSUInteger {
     return cell;
 }
 
-#pragma mark - scrollerView的代理事件，监听scrollerView的滚动，上拉刷新
-
-/**
- *  scrollView滚动到底部后，完成上拉刷新
- *
- *  @param scrollView
- */
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (self.statusList.count == 0 || [self.tableView.tableFooterView isHidden] == NO) {
-        return;
-    }
-    
-    CGFloat OffsetY = scrollView.contentOffset.y;
-    //最后一个cell完全显示时的偏移量
-    CGFloat lastOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.bounds.size.height - self.tableView.tableFooterView.bounds.size.height;
-    
-    if (OffsetY > lastOffsetY) {
-        //显示footerView、并刷新数据
-        self.tableView.tableFooterView.hidden = NO;
-        
-        [self sendRequestForDataWithType:HCSendRequestTypeUp];
-        DLog(@"刷新数据,--%f--%f--", OffsetY, lastOffsetY);
-        
-    }
-}
 
 @end
