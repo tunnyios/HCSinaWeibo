@@ -82,6 +82,7 @@
  *  @param icon      普通图标
  *  @param heighIcon 高亮图标
  * 
+ *  @return 返回新排版的button,
  */
 + (instancetype)buttonWithTitle:(NSString *)title icon:(NSString *)icon heighIcon:(NSString *)heighIcon
 {

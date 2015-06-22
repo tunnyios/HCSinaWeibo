@@ -43,11 +43,18 @@
     //2. 设置转发微博View的frame
     if (status.retweeted_status) {
         [self setRetweetedViewFramesWithStatus:status];
+        
+        //3. 设置转发、评论、点赞工具条的frame
+        self.toolViewF = CGRectMake(0, CGRectGetMaxY(self.retweetedViewF), HCScreenWidth, 30);
+        
         /** cell高度 */
-        self.cellHeight = CGRectGetMaxY(self.originalViewF) + self.retweetedViewF.size.height + HCStatusCellBorderW;
+        self.cellHeight = CGRectGetMaxY(self.originalViewF) + self.retweetedViewF.size.height + self.toolViewF.size.height + HCStatusCellBorderW;
     } else {
+        //3. 设置转发、评论、点赞工具条的frame
+        self.toolViewF = CGRectMake(0, CGRectGetMaxY(self.originalViewF), HCScreenWidth, 30);
+        
         /** cell高度 */
-        self.cellHeight = CGRectGetMaxY(self.originalViewF) + HCStatusCellBorderW;
+        self.cellHeight = CGRectGetMaxY(self.originalViewF) + self.toolViewF.size.height + HCStatusCellBorderW;
     }
     
     
@@ -78,9 +85,9 @@
         CGFloat photoWH = 100;
         self.retweeted_photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
         
-        retweetedH = CGRectGetMaxY(self.retweeted_photoViewF);
+        retweetedH = CGRectGetMaxY(self.retweeted_photoViewF) + HCStatusCellBorderW;
     } else {
-        retweetedH = CGRectGetMaxY(self.retweeted_contentLabelF);
+        retweetedH = CGRectGetMaxY(self.retweeted_contentLabelF) + HCStatusCellBorderW;
     }
     
     /** 转发微博 */
@@ -149,9 +156,9 @@
         CGFloat photoWH = 100;
         self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
         
-        originalH = CGRectGetMaxY(self.photoViewF);
+        originalH = CGRectGetMaxY(self.photoViewF) + HCStatusCellBorderW;
     } else {
-        originalH = CGRectGetMaxY(self.contentLabelF);
+        originalH = CGRectGetMaxY(self.contentLabelF) + HCStatusCellBorderW;
     }
     
     /** 原创微博 */

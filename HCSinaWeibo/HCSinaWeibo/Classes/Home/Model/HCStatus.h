@@ -29,6 +29,15 @@
 /** 微博配图数组 */
 @property (nonatomic, strong) NSArray *pic_urls;
 
+/** 转发数量 */
+@property (nonatomic, assign) int reposts_count;
+
+/** 评论数量 */
+@property (nonatomic, assign) int comments_count;
+
+/** 点赞数量 */
+@property (nonatomic, assign) int attitudes_count;
+
 /** 转发微博属性 */
 @property (nonatomic, strong) HCStatus *retweeted_status;
 

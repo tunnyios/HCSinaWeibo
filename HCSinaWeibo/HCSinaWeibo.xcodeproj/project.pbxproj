@@ -98,6 +98,7 @@
 		A2B705E61B368B26005B9919 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B705E51B368B26005B9919 /* Reveal.framework */; };
 		A2B705E81B368BAC005B9919 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B705E71B368BAC005B9919 /* libz.dylib */; };
 		A2B705EB1B36ED4D005B9919 /* HCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B705EA1B36ED4D005B9919 /* HCPhoto.m */; };
+		A2B705F71B3792E7005B9919 /* HCToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B705F61B3792E7005B9919 /* HCToolView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +294,8 @@
 		A2B705E71B368BAC005B9919 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A2B705E91B36ED4D005B9919 /* HCPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPhoto.h; sourceTree = "<group>"; };
 		A2B705EA1B36ED4D005B9919 /* HCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCPhoto.m; sourceTree = "<group>"; };
+		A2B705F51B3792E7005B9919 /* HCToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCToolView.h; sourceTree = "<group>"; };
+		A2B705F61B3792E7005B9919 /* HCToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCToolView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 				A2166F7E1B358217004F697B /* HCLoadFooterView.xib */,
 				A226ADA31B366BCA0066AC9B /* HCStatusTableViewCell.h */,
 				A226ADA41B366BCA0066AC9B /* HCStatusTableViewCell.m */,
+				A2B705F51B3792E7005B9919 /* HCToolView.h */,
+				A2B705F61B3792E7005B9919 /* HCToolView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1054,6 +1059,7 @@
 				A29DE29D1B33F074000B0AD7 /* AFNetworkReachabilityManager.m in Sources */,
 				A226AD961B36499C0066AC9B /* MJRefreshBackNormalFooter.m in Sources */,
 				A29DE2A11B33F074000B0AD7 /* AFURLResponseSerialization.m in Sources */,
+				A2B705F71B3792E7005B9919 /* HCToolView.m in Sources */,
 				A2B705E41B3672C0005B9919 /* HCStatusFrames.m in Sources */,
 				A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */,
 			);

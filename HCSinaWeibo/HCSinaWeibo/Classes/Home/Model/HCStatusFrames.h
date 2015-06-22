@@ -45,6 +45,9 @@
 /** 转发微博配图 */
 @property (nonatomic, assign) CGRect retweeted_photoViewF;
 
+/** 转发、评论、点赞工具条 */
+@property (nonatomic, assign) CGRect toolViewF;
+
 /** cell高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
 

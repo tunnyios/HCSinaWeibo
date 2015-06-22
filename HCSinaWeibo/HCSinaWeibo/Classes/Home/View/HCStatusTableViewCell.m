@@ -11,6 +11,7 @@
 #import "HCStatus.h"
 #import "HCUser.h"
 #import "HCPhoto.h"
+#import "HCToolView.h"
 #import "UIImageView+WebCache.h"
 
 @interface HCStatusTableViewCell()
@@ -38,6 +39,8 @@
 /** 转发微博配图 */
 @property (nonatomic, weak) UIImageView *retweeted_photoView;
 
+/** 转发、评论、点赞工具条 */
+@property (nonatomic, weak) HCToolView *toolView;
 
 @end
 
@@ -67,6 +70,11 @@
         //2. 创建转发微博View
         [self creatRetweetedStatusView];
         
+        //3. 创建转发、评论、点赞工具条
+        HCToolView *toolView = [[HCToolView alloc] init];
+        [self.contentView addSubview:toolView];
+        self.toolView = toolView;
+        
     }
     
     return self;
@@ -81,17 +89,20 @@
     HCStatus *status = statusFrames.status;
     HCUser *user = status.user;
     
-    //设置原创微博View的内容和位置
+    //1. 设置原创微博View的内容和位置
     [self setOriginalViewContentAndFrames:statusFrames status:status user:user];
     
-    //设置转发微博View的内容和位置
+    //2. 设置转发微博View的内容和位置
     if (self.statusFrames.status.retweeted_status) {
         [self setRetweetedViewContentAndFrames:statusFrames status:status];
         self.retweetedView.hidden = NO;
     }else {
         self.retweetedView.hidden = YES;
     }
-
+    
+    //3. 设置转发、评论、点赞工具条的内容位置
+    self.toolView.frame = statusFrames.toolViewF;
+    self.toolView.status = statusFrames.status;
 }
 
 /**

@@ -259,6 +259,7 @@ typedef enum : NSUInteger {
     
     //中间view,先取沙盒中的title
     HCNewTypeButtonView *titleBtn = [HCNewTypeButtonView buttonWithTitle:(account.screen_name ? account.screen_name : @"首页") icon:@"navigationbar_arrow_down" heighIcon:@"navigationbar_arrow_down"];
+    
     //监听按钮点击，弹出下拉菜单
     [titleBtn addTarget:self action:@selector(dropDownMenu:) forControlEvents:UIControlEventTouchUpInside];
     
