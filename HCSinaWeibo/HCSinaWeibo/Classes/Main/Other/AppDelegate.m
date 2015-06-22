@@ -48,9 +48,15 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
+#pragma mark - 进入后台后如还需要运行，则需在在该方法中申请
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    //向操作系统申请后台运行资格，能维持多久， 是不确定的
+    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+        //当申请的后台运行时间已过期，则会执行这个block
+        //关闭后台运行
+        [application endBackgroundTask:task];
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -65,7 +71,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - 接收到内存警告时，取消下载，清空图片缓存
+#pragma mark - 接收到内存警告时，取消下载图片，清空图片缓存
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
     SDWebImageManager *mgr = [SDWebImageManager sharedManager];

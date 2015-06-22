@@ -64,6 +64,40 @@ typedef enum : NSUInteger {
     
     //4. 设置上拉刷新
     [self dropUpRefreshStatus];
+    
+    //5. 定时发送请求，显示未读微博条数
+    NSTimer *timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(setupUnreadStatus) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+}
+
+#pragma mark - 定时发送请求，显示未读微博数
+- (void)setupUnreadStatus
+{
+    HCAccount *account = [HCAccountTools account];
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        //NSNumber 转 NSString
+        NSString *unReadCount = [responseObject[@"status"] description];
+        DLog(@"未读条数:%@", unReadCount);
+        if ([unReadCount isEqualToString:@"0"]) {
+            self.tabBarItem.badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        } else {
+            self.tabBarItem.badgeValue = unReadCount;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = unReadCount.integerValue;
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DLog(@"请求失败");
+    }];
 }
 
 #pragma mark - 上拉刷新

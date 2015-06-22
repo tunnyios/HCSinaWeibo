@@ -39,6 +39,10 @@
     //转换创建日期格式 Mon Jun 22 11:09:02 +0800 2015
 //    _created_at = @"Mon Jun 22 14:50:00 +0800 2015";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    //真机调试需要转换这种欧美时间，需要设置local
+//    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+    
     formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     //2015-06-22 03:15:03 +0000
     NSDate *creatDate = [formatter dateFromString:_created_at];
