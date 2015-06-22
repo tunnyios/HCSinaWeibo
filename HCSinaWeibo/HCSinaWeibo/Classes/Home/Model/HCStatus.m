@@ -42,7 +42,7 @@
     formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     //2015-06-22 03:15:03 +0000
     NSDate *creatDate = [formatter dateFromString:_created_at];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSString *creatStr = [formatter stringFromDate:creatDate];
 
     //取当前日期时间
@@ -60,6 +60,9 @@
     NSDateComponents *creatDayComponents = [calendar components:unit fromDate:creatDate toDate:currentDayDate options:0];
     
     //判断是否今年
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    creatStr = [formatter stringFromDate:creatDate];
+    
     if (0 == creatYearComponents.year) {
 //        DLog(@"是今年");
         if (0 == creatDayComponents.day) {  //今天
@@ -81,12 +84,23 @@
         }
 
     } else {
-        formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-        creatStr = [formatter stringFromDate:creatDate];
-        
-//        DLog(@"去年--%@--", creatStr);
+        DLog(@"去年--%@--", creatStr);
     }
     
     return creatStr;
+}
+
+- (NSString *)source
+{
+    //<a href="http://app.weibo.com/t/feed/4ovNG8" rel="nofollow">果壳网</a>
+    
+    NSString *str = _source;
+    NSRange startRange = [str rangeOfString:@">"];
+    str = [str substringFromIndex:(startRange.location + startRange.length)];
+
+    NSRange endRange = [str rangeOfString:@"<"];
+    str = [str substringToIndex:endRange.location];
+    str = [NSString stringWithFormat:@"来自 %@", str];
+    return str;
 }
 @end
