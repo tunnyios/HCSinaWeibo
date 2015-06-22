@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class HCStatus;
-@interface HCToolView : UIView
+@interface HCToolView : UIImageView
 @property (nonatomic, strong) HCStatus *status;
 
 @end

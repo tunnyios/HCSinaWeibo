@@ -49,6 +49,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
+        
         //添加button
         self.repostBtn = [self setupBtnWithTitle:@"转发" icon:@"timeline_icon_retweet"];
         self.commentBtn = [self setupBtnWithTitle:@"评论" icon:@"timeline_icon_comment"];
@@ -140,7 +142,7 @@
     
     [self addSubview:btn];
     [self.btnArray addObject:btn];
-
+    btn.backgroundColor = [UIColor colorWithRandom];
     return btn;
 }
 

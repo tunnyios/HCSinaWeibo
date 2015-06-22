@@ -245,9 +245,7 @@
     
     /** 微博发布时间 */
     self.timeLabel.frame = statusFrames.timeLabelF;
-#warning sssssssss
-    //    self.timeLabel.text = status.created_at;
-    self.timeLabel.text = @"刚刚";
+    self.timeLabel.text = status.created_at;
     self.timeLabel.textColor = [UIColor orangeColor];
     
     /** 微博来源 */

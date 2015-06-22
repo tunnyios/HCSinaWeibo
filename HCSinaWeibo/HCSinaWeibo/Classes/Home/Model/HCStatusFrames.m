@@ -129,7 +129,7 @@
     /** 微博发布时间 */
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + HCStatusCellBorderW * 0.3;
-    CGSize timeSize = [self textSizeWithText:@"刚刚" font:HCStatusTimeFont MaxWidth:CGFLOAT_MAX];
+    CGSize timeSize = [self textSizeWithText:status.created_at font:HCStatusTimeFont MaxWidth:CGFLOAT_MAX];
 //    self.timeLabelF = CGRectMake(timeX, timeY, timeW, timeH);
     self.timeLabelF = (CGRect){{timeX, timeY}, timeSize};
     
