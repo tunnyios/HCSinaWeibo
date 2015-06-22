@@ -12,6 +12,11 @@
 #import "MBProgressHUD+MJ.h"
 #import "HCAccountTools.h"
 
+
+#define HCAppKey    @"2071142341"
+#define HCRedirectUrl   @"https://tunnyios.github.io/"
+#define HCSecret        @"127af0d161b086d9d1598d0400293721"
+
 @interface HCOAuthViewController ()<UIWebViewDelegate>
 
 @end
@@ -26,7 +31,7 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.delegate = self;
     [self.view addSubview:webView];
-    NSString *str = @"https://api.weibo.com/oauth2/authorize?client_id=1533842430&redirect_uri=https://tunnyios.github.io/";
+    NSString *str = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@", HCAppKey, HCRedirectUrl];
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
@@ -75,15 +80,15 @@
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     //设置参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"1533842430";
-    params[@"client_secret"] = @"7a3d4de75cf1fa7e5bf8a6b13d044be2";
+    params[@"client_id"] = HCAppKey;
+    params[@"client_secret"] = HCSecret;
     params[@"grant_type"] = @"authorization_code";
-    params[@"redirect_uri"] = @"https://tunnyios.github.io/";
+    params[@"redirect_uri"] = HCRedirectUrl;
     params[@"code"] = code;
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [MBProgressHUD hideHUD];
-//        DLog(@"请求成功---%@---", responseObject);
+        DLog(@"请求成功---%@---", responseObject);
         
         //将responseObject字典转成模型
         HCAccount *account = [HCAccount accountWithDict:responseObject];

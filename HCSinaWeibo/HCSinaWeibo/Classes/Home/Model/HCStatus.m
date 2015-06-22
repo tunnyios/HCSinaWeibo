@@ -41,7 +41,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
     //真机调试需要转换这种欧美时间，需要设置local
-//    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
     
     formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     //2015-06-22 03:15:03 +0000
@@ -97,6 +97,10 @@
 - (NSString *)source
 {
     //<a href="http://app.weibo.com/t/feed/4ovNG8" rel="nofollow">果壳网</a>
+//    DLog(@"-source:%@--", _source);
+    if ([_source isEqualToString:@""]) {
+        return _source;
+    }
     
     NSString *str = _source;
     NSRange startRange = [str rangeOfString:@">"];
