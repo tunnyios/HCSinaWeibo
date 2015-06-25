@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A20029A21B3C0E52003987DA /* HCStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20029A11B3C0E52003987DA /* HCStatusPhotoView.m */; };
 		A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DA1B31605600ECFC76 /* AppDelegate.m */; };
 		A20703DD1B31605600ECFC76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DB1B31605600ECFC76 /* main.m */; };
 		A20703E31B31620700ECFC76 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703E21B31620700ECFC76 /* UIBarButtonItem+Extension.m */; };
@@ -16,8 +17,7 @@
 		A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F01B31696800ECFC76 /* UIColor+Tools.m */; };
 		A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F41B316BC800ECFC76 /* HCMainViewController.m */; };
 		A20703F81B316BEF00ECFC76 /* HCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703F71B316BEF00ECFC76 /* HCNavigationController.m */; };
-		A2166F7D1B3581FF004F697B /* HCLoadFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */; };
-		A2166F7F1B358217004F697B /* HCLoadFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2166F7E1B358217004F697B /* HCLoadFooterView.xib */; };
+		A207DDFB1B3BF31A00979784 /* HCStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = A207DDFA1B3BF31A00979784 /* HCStatusPhotosView.m */; };
 		A226AD8D1B36499C0066AC9B /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD631B36499C0066AC9B /* MJRefreshAutoFooter.m */; };
 		A226AD8E1B36499C0066AC9B /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD651B36499C0066AC9B /* MJRefreshBackFooter.m */; };
 		A226AD8F1B36499C0066AC9B /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A226AD671B36499C0066AC9B /* MJRefreshComponent.m */; };
@@ -112,6 +112,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A20029A01B3C0E52003987DA /* HCStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatusPhotoView.h; sourceTree = "<group>"; };
+		A20029A11B3C0E52003987DA /* HCStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatusPhotoView.m; sourceTree = "<group>"; };
 		A20703D91B31605600ECFC76 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A20703DA1B31605600ECFC76 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A20703DB1B31605600ECFC76 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,9 +132,8 @@
 		A20703F41B316BC800ECFC76 /* HCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainViewController.m; sourceTree = "<group>"; };
 		A20703F61B316BEF00ECFC76 /* HCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationController.h; sourceTree = "<group>"; };
 		A20703F71B316BEF00ECFC76 /* HCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNavigationController.m; sourceTree = "<group>"; };
-		A2166F7B1B3581FF004F697B /* HCLoadFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLoadFooterView.h; sourceTree = "<group>"; };
-		A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLoadFooterView.m; sourceTree = "<group>"; };
-		A2166F7E1B358217004F697B /* HCLoadFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCLoadFooterView.xib; sourceTree = "<group>"; };
+		A207DDF91B3BF31A00979784 /* HCStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStatusPhotosView.h; sourceTree = "<group>"; };
+		A207DDFA1B3BF31A00979784 /* HCStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCStatusPhotosView.m; sourceTree = "<group>"; };
 		A226AD621B36499C0066AC9B /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		A226AD631B36499C0066AC9B /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		A226AD641B36499C0066AC9B /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -358,13 +359,14 @@
 		A2166F7A1B3581DB004F697B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A2166F7B1B3581FF004F697B /* HCLoadFooterView.h */,
-				A2166F7C1B3581FF004F697B /* HCLoadFooterView.m */,
-				A2166F7E1B358217004F697B /* HCLoadFooterView.xib */,
 				A226ADA31B366BCA0066AC9B /* HCStatusTableViewCell.h */,
 				A226ADA41B366BCA0066AC9B /* HCStatusTableViewCell.m */,
 				A2B705F51B3792E7005B9919 /* HCToolView.h */,
 				A2B705F61B3792E7005B9919 /* HCToolView.m */,
+				A207DDF91B3BF31A00979784 /* HCStatusPhotosView.h */,
+				A207DDFA1B3BF31A00979784 /* HCStatusPhotosView.m */,
+				A20029A01B3C0E52003987DA /* HCStatusPhotoView.h */,
+				A20029A11B3C0E52003987DA /* HCStatusPhotoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -958,7 +960,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */,
-				A2166F7F1B358217004F697B /* HCLoadFooterView.xib in Resources */,
 				A226AD9B1B36499C0066AC9B /* MJRefresh.bundle in Resources */,
 				A29DE3281B343017000B0AD7 /* MBProgressHUD.bundle in Resources */,
 			);
@@ -998,7 +999,6 @@
 				A20703F51B316BC800ECFC76 /* HCMainViewController.m in Sources */,
 				A29DE2A21B33F074000B0AD7 /* AFURLSessionManager.m in Sources */,
 				A24B6D781B33034E00287F51 /* HCNewFeatureViewController.m in Sources */,
-				A2166F7D1B3581FF004F697B /* HCLoadFooterView.m in Sources */,
 				A226AD981B36499C0066AC9B /* MJRefreshGifHeader.m in Sources */,
 				A23B14CC1B355236007D6727 /* SDWebImageDecoder.m in Sources */,
 				A23C620A1B306A97004F86BA /* HCProfileTableViewController.m in Sources */,
@@ -1024,6 +1024,7 @@
 				A23B14D71B355236007D6727 /* UIView+WebCacheOperation.m in Sources */,
 				A29DE3291B343017000B0AD7 /* MBProgressHUD.m in Sources */,
 				A23B14CF1B355236007D6727 /* SDWebImageManager.m in Sources */,
+				A20029A21B3C0E52003987DA /* HCStatusPhotoView.m in Sources */,
 				A20703E81B31679400ECFC76 /* TestOneViewController.m in Sources */,
 				A23B149C1B354BE0007D6727 /* MJFoundation.m in Sources */,
 				A23C61F81B306A6F004F86BA /* HCDiscoverTableViewController.m in Sources */,
@@ -1041,6 +1042,7 @@
 				A29DE29B1B33F074000B0AD7 /* AFHTTPRequestOperationManager.m in Sources */,
 				A29DE3201B3426FA000B0AD7 /* HCAccount.m in Sources */,
 				A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */,
+				A207DDFB1B3BF31A00979784 /* HCStatusPhotosView.m in Sources */,
 				A23B14851B354A6E007D6727 /* HCStatus.m in Sources */,
 				A23B14C91B355236007D6727 /* NSData+ImageContentType.m in Sources */,
 				A226AD9E1B36499C0066AC9B /* UIScrollView+MJRefresh.m in Sources */,

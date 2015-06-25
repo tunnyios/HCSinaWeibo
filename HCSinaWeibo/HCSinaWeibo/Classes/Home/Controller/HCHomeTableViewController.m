@@ -17,7 +17,6 @@
 #import "HCUser.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
-#import "HCLoadFooterView.h"
 #import "MJRefresh.h"
 #import "HCStatusTableViewCell.h"
 #import "HCStatusFrames.h"

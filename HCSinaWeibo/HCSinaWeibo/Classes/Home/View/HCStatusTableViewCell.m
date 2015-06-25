@@ -12,6 +12,7 @@
 #import "HCUser.h"
 #import "HCPhoto.h"
 #import "HCToolView.h"
+#import "HCStatusPhotosView.h"
 #import "UIImageView+WebCache.h"
 
 @interface HCStatusTableViewCell()
@@ -30,14 +31,14 @@
 /** 微博正文 */
 @property (nonatomic, weak) UILabel *contentLabel;
 /** 微博配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) HCStatusPhotosView *photosView;
 
 /** 转发微博 */
 @property (nonatomic, weak) UIView *retweetedView;
 /** 转发微博微博正文 */
 @property (nonatomic, weak) UILabel *retweeted_contentLabel;
 /** 转发微博配图 */
-@property (nonatomic, weak) UIImageView *retweeted_photoView;
+@property (nonatomic, weak) HCStatusPhotosView *retweeted_photosView;
 
 /** 转发、评论、点赞工具条 */
 @property (nonatomic, weak) HCToolView *toolView;
@@ -60,6 +61,7 @@
     return cell;
 }
 
+#pragma mark - 创建cell中的子控件
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -80,6 +82,7 @@
     return self;
 }
 
+#pragma mark - 设置cell中的子控件位置 
 /**
  *  设置微博cell的数据和位置
  */
@@ -124,9 +127,10 @@
     self.retweeted_contentLabel = retweeted_contentLabel;
     
     /** 转发微博配图 */
-    UIImageView *retweeted_photoView = [[UIImageView alloc] init];
-    [self.retweetedView addSubview:retweeted_photoView];
-    self.retweeted_photoView = retweeted_photoView;
+    HCStatusPhotosView *retweeted_photosView = [[HCStatusPhotosView alloc] init];
+    retweeted_photosView.backgroundColor = [UIColor blueColor];
+    [self.retweetedView addSubview:retweeted_photosView];
+    self.retweeted_photosView = retweeted_photosView;
 }
 
 /**
@@ -147,12 +151,13 @@
     
     /** 转发微博配图 */
     if (retweeted_status.pic_urls.count) {
-        self.retweeted_photoView.hidden = NO;
-        self.retweeted_photoView.frame = statusFrames.retweeted_photoViewF;
-        NSURL *photoUrl = [NSURL URLWithString:[[retweeted_status.pic_urls firstObject] thumbnail_pic]];
-        [self.retweeted_photoView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.retweeted_photosView.hidden = NO;
+        self.retweeted_photosView.frame = statusFrames.retweeted_photosViewF;
+        self.retweeted_photosView.photosList = retweeted_status.pic_urls;
+//        NSURL *photoUrl = [NSURL URLWithString:[[retweeted_status.pic_urls firstObject] thumbnail_pic]];
+//        [self.retweeted_photosView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
     } else {
-        self.retweeted_photoView.hidden = YES;
+        self.retweeted_photosView.hidden = YES;
     }
 }
 
@@ -202,9 +207,10 @@
     self.contentLabel = contentLabel;
     
     /** 微博配图 */
-    UIImageView *photoView = [[UIImageView alloc] init];
-    [self.originalView addSubview:photoView];
-    self.photoView = photoView;
+    HCStatusPhotosView *photosView = [[HCStatusPhotosView alloc] init];
+    photosView.backgroundColor = [UIColor redColor];
+    [self.originalView addSubview:photosView];
+    self.photosView = photosView;
 }
 
 /**
@@ -258,12 +264,13 @@
     
     /** 微博配图 */
     if (status.pic_urls.count) {
-        self.photoView.hidden = NO;
-        self.photoView.frame = statusFrames.photoViewF;
-        NSURL *photoUrl = [NSURL URLWithString:[[status.pic_urls firstObject] thumbnail_pic]];
-        [self.photoView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photosView.hidden = NO;
+        self.photosView.frame = statusFrames.photosViewF;
+        self.photosView.photosList = status.pic_urls;
+//        NSURL *photoUrl = [NSURL URLWithString:[[status.pic_urls firstObject] thumbnail_pic]];
+//        [self.photosView sd_setImageWithURL:photoUrl placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
     } else {
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
 }
 

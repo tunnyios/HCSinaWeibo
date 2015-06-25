@@ -52,7 +52,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     //向操作系统申请后台运行资格，能维持多久， 是不确定的
-    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
         //当申请的后台运行时间已过期，则会执行这个block
         //关闭后台运行
         [application endBackgroundTask:task];

@@ -9,6 +9,7 @@
 #import "HCStatusFrames.h"
 #import "HCUser.h"
 #import "HCStatus.h"
+#import "HCStatusPhotosView.h"
 
 
 #define HCStatusCellBorderW   10
@@ -82,10 +83,11 @@
     if (retweeted_status.pic_urls.count) {
         CGFloat photoX = HCStatusCellBorderW;
         CGFloat photoY = CGRectGetMaxY(self.retweeted_contentLabelF) + HCStatusCellBorderW;
-        CGFloat photoWH = 100;
-        self.retweeted_photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGSize photoSize = [HCStatusPhotosView photosViewSizeWithCount:retweeted_status.pic_urls.count];
+//        self.retweeted_photosViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        self.retweeted_photosViewF = (CGRect){{photoX, photoY}, photoSize};
         
-        retweetedH = CGRectGetMaxY(self.retweeted_photoViewF) + HCStatusCellBorderW;
+        retweetedH = CGRectGetMaxY(self.retweeted_photosViewF) + HCStatusCellBorderW;
     } else {
         retweetedH = CGRectGetMaxY(self.retweeted_contentLabelF) + HCStatusCellBorderW;
     }
@@ -153,10 +155,11 @@
     if (status.pic_urls.count) {
         CGFloat photoX = iconX;
         CGFloat photoY = CGRectGetMaxY(self.contentLabelF) + HCStatusCellBorderW;
-        CGFloat photoWH = 100;
-        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGSize photoSize = [HCStatusPhotosView photosViewSizeWithCount:status.pic_urls.count];
+//        self.photosViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        self.photosViewF = (CGRect){{photoX, photoY}, photoSize};
         
-        originalH = CGRectGetMaxY(self.photoViewF) + HCStatusCellBorderW;
+        originalH = CGRectGetMaxY(self.photosViewF) + HCStatusCellBorderW;
     } else {
         originalH = CGRectGetMaxY(self.contentLabelF) + HCStatusCellBorderW;
     }

@@ -45,6 +45,7 @@
     return _dividerArray;
 }
 
+#pragma mark - 创建cell工具条的子控件
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -90,6 +91,7 @@
     [btn setTitle:title forState:UIControlStateNormal];
 }
 
+#pragma  mark - 设置位置
 /**
  *  自动布局设置各个按钮的位置
  */

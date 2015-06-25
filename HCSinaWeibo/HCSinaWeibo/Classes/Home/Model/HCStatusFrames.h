@@ -36,14 +36,14 @@
 /** 微博正文 */
 @property (nonatomic, assign) CGRect contentLabelF;
 /** 微博配图 */
-@property (nonatomic, assign) CGRect photoViewF;
+@property (nonatomic, assign) CGRect photosViewF;
 
 /** 转发微博 */
 @property (nonatomic, assign) CGRect retweetedViewF;
 /** 转发微博正文 */
 @property (nonatomic, assign) CGRect retweeted_contentLabelF;
 /** 转发微博配图 */
-@property (nonatomic, assign) CGRect retweeted_photoViewF;
+@property (nonatomic, assign) CGRect retweeted_photosViewF;
 
 /** 转发、评论、点赞工具条 */
 @property (nonatomic, assign) CGRect toolViewF;
