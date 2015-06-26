@@ -11,7 +11,7 @@
 #import "HCPlaceHolderTextView.h"
 #import "HCComposTextToolBar.h"
 
-@interface HCComposeViewController ()
+@interface HCComposeViewController () <HCComposTextToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) HCPlaceHolderTextView *comTextView;
 
@@ -35,13 +35,114 @@
     [self setupTextToolBar];
 }
 
-#pragma mark - 文本框工具条
+#pragma mark - 文本框工具条处理
 - (void)setupTextToolBar
 {
     HCComposTextToolBar *toolBar = [[HCComposTextToolBar alloc] init];
     toolBar.frame = CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44);
     self.textToolBar = toolBar;
+    self.textToolBar.delegate = self;
     [self.view addSubview:toolBar];
+}
+
+/**
+ *  文本框工具条代理 点击事件处理
+ *
+ *  @param type 被点击的按钮类型
+ */
+- (void)composTextToolBarClickedWithType:(HCComposTextToolBarType)type
+{
+    switch (type) {
+        case HCComposTextToolBarTypeCarema:
+            /** 相机按钮被点击 */
+            [self caremaBtnClick];
+            break;
+        case HCComposTextToolBarTypeAlbum:
+            /** 相册按钮被点击 */
+            [self albumBtnClick];
+            break;
+        case HCComposTextToolBarTypeAite:
+            /** @按钮被点击 */
+            [self aiteBtnClick];
+            break;
+        case HCComposTextToolBarTypeTopic:
+            /** ##按钮被点击 */
+            [self topicBtnClick];
+            break;
+        case HCComposTextToolBarTypeEmotion:
+            /** 表情被点击 */
+            [self emotionBtnClick];
+            break;
+        default:
+            break;
+    }
+}
+
+/** 表情被点击 */
+- (void)emotionBtnClick
+{
+    DLog(@"表情钮被点击");
+}
+
+/** ##按钮被点击 */
+- (void)topicBtnClick
+{
+    DLog(@"##钮被点击");
+}
+
+/** @按钮被点击 */
+- (void)aiteBtnClick
+{
+    DLog(@"@@按钮被点击");
+}
+
+#pragma mark - 相册、相机按钮点击事件处理
+/** 相册按钮被点击 */
+- (void)albumBtnClick
+{
+    DLog(@"相册按钮被点击");
+    [self openPickerControllerWithType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+}
+
+/** 相机按钮被点击 */
+- (void)caremaBtnClick
+{
+    [self openPickerControllerWithType:UIImagePickerControllerSourceTypeCamera];
+}
+
+/**
+ *  创建并显示图片查看器
+ *
+ *  @param type 图片查看器源类型
+ */
+- (void)openPickerControllerWithType:(UIImagePickerControllerSourceType)type
+{
+    if (![UIImagePickerController isSourceTypeAvailable:type]) return;
+    //图片查看器
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = type;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+/**
+ *  pickerController中选中图片后的事件处理
+ *
+ *  @param picker
+ *  @param info 存放着选中的图片iamgeView
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    DLog(@"%@", info);
+}
+
+/**
+ *  pickerController的取消按钮点击
+ */
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - 键盘位置的处理
