@@ -22,15 +22,15 @@
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
     // 设置普通状态
-    NSDictionary *norFontDict = @{NSFontAttributeName : [UIFont systemFontOfSize:13],
+    NSDictionary *norFontDict = @{NSFontAttributeName : [UIFont systemFontOfSize:15],
                                   NSForegroundColorAttributeName : [UIColor orangeColor]
                                   };
     [item setTitleTextAttributes:norFontDict forState:UIControlStateNormal];
     
     
     // 设置不可用状态
-    NSDictionary *disFontDict = @{NSFontAttributeName : [UIFont systemFontOfSize:13],
-                                  NSForegroundColorAttributeName : [UIColor grayColor]
+    /* 此处可以不用设置字体，不同状态下的字体是公用的，设置1个即可 */
+    NSDictionary *disFontDict = @{NSForegroundColorAttributeName : [UIColor grayColor]
                                   };
     [item setTitleTextAttributes:disFontDict forState:UIControlStateDisabled];
 }

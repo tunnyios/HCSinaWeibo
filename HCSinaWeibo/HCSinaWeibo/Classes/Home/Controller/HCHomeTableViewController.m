@@ -167,12 +167,12 @@ typedef enum : NSUInteger {
     }
     
     [mgr GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        DLog(@"-access_token:%@--%@--", account.access_token, responseObject);
+//        DLog(@"-access_token:%@--%@--", account.access_token, responseObject);
         
         //将微博字典数组－－－>微博模型数组
         NSArray *newStatuses = [HCStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
-        DLog(@"count:%ld--", (unsigned long)newStatuses.count);
+//        DLog(@"count:%ld--", (unsigned long)newStatuses.count);
         //将status模型转换成statusFrames模型
         NSArray *newStatusFrames = [self statusFramesWihtStatus:newStatuses];
         

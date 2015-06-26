@@ -12,6 +12,7 @@
 #import "HCProfileTableViewController.h"
 #import "HCDiscoverTableViewController.h"
 #import "HCTabBar5ContentView.h"
+#import "HCComposeViewController.h"
 
 @interface HCMainViewController ()<HCTabBar5ContenViewDelegate>
 
@@ -91,17 +92,10 @@
 #pragma mark - 自定义tabBar的监听点击代理事件
 - (void)tabBar5ContenViewWithTabBar:(HCTabBar5ContentView *)tabBar
 {
-    DLog(@"点击了plusButton。。。");
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compose_slogan"]];
-    CGRect frame = imageView.frame;
-    frame.origin = CGPointMake(50, 100);
-    imageView.frame = frame;
-    [vc.view addSubview:imageView];
-    
-    [self presentViewController:vc animated:NO completion:nil];
-    
+    HCComposeViewController *composeVc = [[HCComposeViewController alloc] init];
+    HCNavigationController *nvc = [[HCNavigationController alloc] initWithRootViewController:composeVc];
+
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 @end

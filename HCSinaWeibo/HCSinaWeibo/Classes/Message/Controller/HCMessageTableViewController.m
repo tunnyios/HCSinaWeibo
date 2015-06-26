@@ -27,16 +27,21 @@
     self.navigationItem.leftBarButtonItem = nil;
     
     //右边图标
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发消息" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发消息" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessage)];
     
     //只有当主题加载完成后，再设置enable才有用
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
+- (void)sendMessage
+{
+    DLog(@"发消息");
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {

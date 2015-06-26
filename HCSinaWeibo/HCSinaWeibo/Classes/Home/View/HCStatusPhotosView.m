@@ -82,7 +82,7 @@
     CGFloat photsViewW = col * (HCStatusPhotoWH + HCStatusPhotosViewPadding) + HCStatusPhotoWH;
     CGFloat photosViewH = row * (HCStatusPhotoWH + HCStatusPhotosViewPadding) + HCStatusPhotoWH;
     
-    DLog(@"-count:%lu-row:%lu--col:%lu--W:%f--H:%f", (unsigned long)count, (unsigned long)row, (unsigned long)col, photsViewW, photosViewH);
+//    DLog(@"-count:%lu-row:%lu--col:%lu--W:%f--H:%f", (unsigned long)count, (unsigned long)row, (unsigned long)col, photsViewW, photosViewH);
     
     return CGSizeMake(photsViewW, photosViewH);
 }
