@@ -10,6 +10,6 @@
 
 @interface HCEmotionContentView : UIView
 
-/** pageControl的页数 */
-@property (nonatomic, assign) NSUInteger count;
+/** emotion表情模型数组 */
+@property (nonatomic, strong) NSArray *emotions;
 @end

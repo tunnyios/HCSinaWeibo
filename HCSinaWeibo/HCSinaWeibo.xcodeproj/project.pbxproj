@@ -105,6 +105,12 @@
 		A2B705E81B368BAC005B9919 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B705E71B368BAC005B9919 /* libz.dylib */; };
 		A2B705EB1B36ED4D005B9919 /* HCPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B705EA1B36ED4D005B9919 /* HCPhoto.m */; };
 		A2B705F71B3792E7005B9919 /* HCToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B705F61B3792E7005B9919 /* HCToolView.m */; };
+		A2E7BDD01B3E66C300D85C03 /* HCEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7BDCF1B3E66C300D85C03 /* HCEmotionModel.m */; };
+		A2E7BDD51B3E70D400D85C03 /* HCEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7BDD41B3E70D400D85C03 /* HCEmotionPageView.m */; };
+		A2E7C4AF1B3E905E00D85C03 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7C4AE1B3E905E00D85C03 /* NSString+Emoji.m */; };
+		A2E7C4B31B3E952000D85C03 /* com.apple.emoji in Resources */ = {isa = PBXBuildFile; fileRef = A2E7C4B01B3E952000D85C03 /* com.apple.emoji */; };
+		A2E7C4B41B3E952000D85C03 /* com.sina.default in Resources */ = {isa = PBXBuildFile; fileRef = A2E7C4B11B3E952000D85C03 /* com.sina.default */; };
+		A2E7C4B51B3E952000D85C03 /* com.sina.lxh in Resources */ = {isa = PBXBuildFile; fileRef = A2E7C4B21B3E952000D85C03 /* com.sina.lxh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +321,15 @@
 		A2B705EA1B36ED4D005B9919 /* HCPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCPhoto.m; sourceTree = "<group>"; };
 		A2B705F51B3792E7005B9919 /* HCToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCToolView.h; sourceTree = "<group>"; };
 		A2B705F61B3792E7005B9919 /* HCToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCToolView.m; sourceTree = "<group>"; };
+		A2E7BDCE1B3E66C300D85C03 /* HCEmotionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEmotionModel.h; sourceTree = "<group>"; };
+		A2E7BDCF1B3E66C300D85C03 /* HCEmotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEmotionModel.m; sourceTree = "<group>"; };
+		A2E7BDD31B3E70D400D85C03 /* HCEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEmotionPageView.h; sourceTree = "<group>"; };
+		A2E7BDD41B3E70D400D85C03 /* HCEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEmotionPageView.m; sourceTree = "<group>"; };
+		A2E7C4AD1B3E905E00D85C03 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		A2E7C4AE1B3E905E00D85C03 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		A2E7C4B01B3E952000D85C03 /* com.apple.emoji */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.apple.emoji; sourceTree = "<group>"; };
+		A2E7C4B11B3E952000D85C03 /* com.sina.default */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.sina.default; sourceTree = "<group>"; };
+		A2E7C4B21B3E952000D85C03 /* com.sina.lxh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.sina.lxh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +375,8 @@
 		A20029A51B3C2B9B003987DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2E7BDCE1B3E66C300D85C03 /* HCEmotionModel.h */,
+				A2E7BDCF1B3E66C300D85C03 /* HCEmotionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -373,6 +390,8 @@
 				A2063EFA1B3D533C00D66F5B /* HCComposEmotionKeyborad.m */,
 				A2063EFF1B3D818D00D66F5B /* HCEmotionContentView.h */,
 				A2063F001B3D818D00D66F5B /* HCEmotionContentView.m */,
+				A2E7BDD31B3E70D400D85C03 /* HCEmotionPageView.h */,
+				A2E7BDD41B3E70D400D85C03 /* HCEmotionPageView.m */,
 				A2063EFC1B3D720300D66F5B /* HCEmotionToolbar.h */,
 				A2063EFD1B3D720300D66F5B /* HCEmotionToolbar.m */,
 			);
@@ -382,6 +401,8 @@
 		A20703D71B31605600ECFC76 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A2E7C4AD1B3E905E00D85C03 /* NSString+Emoji.h */,
+				A2E7C4AE1B3E905E00D85C03 /* NSString+Emoji.m */,
 				A23B14A31B354DE9007D6727 /* NSArray+Log.h */,
 				A23B14A41B354DE9007D6727 /* NSArray+Log.m */,
 				A20703E11B31620700ECFC76 /* UIBarButtonItem+Extension.h */,
@@ -789,6 +810,9 @@
 		A2599AFD1B2FF8D900CD133B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A2E7C4B01B3E952000D85C03 /* com.apple.emoji */,
+				A2E7C4B11B3E952000D85C03 /* com.sina.default */,
+				A2E7C4B21B3E952000D85C03 /* com.sina.lxh */,
 				A2599AFE1B2FF8D900CD133B /* Info.plist */,
 				A20703E51B31634A00ECFC76 /* PrefixHeader.pch */,
 			);
@@ -1021,8 +1045,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E7C4B31B3E952000D85C03 /* com.apple.emoji in Resources */,
 				A2599B0B1B2FF8D900CD133B /* Images.xcassets in Resources */,
 				A226AD9B1B36499C0066AC9B /* MJRefresh.bundle in Resources */,
+				A2E7C4B41B3E952000D85C03 /* com.sina.default in Resources */,
+				A2E7C4B51B3E952000D85C03 /* com.sina.lxh in Resources */,
 				A29DE3281B343017000B0AD7 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1103,6 +1130,7 @@
 				A20703DD1B31605600ECFC76 /* main.m in Sources */,
 				A23B14881B354A80007D6727 /* HCUser.m in Sources */,
 				A226AD8F1B36499C0066AC9B /* MJRefreshComponent.m in Sources */,
+				A2E7BDD01B3E66C300D85C03 /* HCEmotionModel.m in Sources */,
 				A23B14A11B354BE0007D6727 /* NSObject+MJProperty.m in Sources */,
 				A29DE29B1B33F074000B0AD7 /* AFHTTPRequestOperationManager.m in Sources */,
 				A29DE3201B3426FA000B0AD7 /* HCAccount.m in Sources */,
@@ -1122,6 +1150,7 @@
 				A226AD9F1B36499C0066AC9B /* UIView+MJExtension.m in Sources */,
 				A23B149B1B354BE0007D6727 /* MJConst.m in Sources */,
 				A29DE31D1B3426E7000B0AD7 /* HCOAuthViewController.m in Sources */,
+				A2E7BDD51B3E70D400D85C03 /* HCEmotionPageView.m in Sources */,
 				A23B14CD1B355236007D6727 /* SDWebImageDownloader.m in Sources */,
 				A23B149E1B354BE0007D6727 /* MJType.m in Sources */,
 				A29DE29D1B33F074000B0AD7 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1129,6 +1158,7 @@
 				A29DE2A11B33F074000B0AD7 /* AFURLResponseSerialization.m in Sources */,
 				A2B705F71B3792E7005B9919 /* HCToolView.m in Sources */,
 				A218576B1B3C55B30032DAD2 /* HCPlaceHolderTextView.m in Sources */,
+				A2E7C4AF1B3E905E00D85C03 /* NSString+Emoji.m in Sources */,
 				A2B705E41B3672C0005B9919 /* HCStatusFrames.m in Sources */,
 				A2063EFB1B3D533C00D66F5B /* HCComposEmotionKeyborad.m in Sources */,
 				A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */,

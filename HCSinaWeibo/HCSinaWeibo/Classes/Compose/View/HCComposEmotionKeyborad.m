@@ -9,6 +9,8 @@
 #import "HCComposEmotionKeyborad.h"
 #import "HCEmotionToolbar.h"
 #import "HCEmotionContentView.h"
+#import "HCEmotionModel.h"
+#import "MJExtension.h"
 
 @interface HCComposEmotionKeyborad()<HCEmotionToolbarDelegate>
 
@@ -34,7 +36,7 @@
 {
     if (_emotionRecentView == nil) {
         _emotionRecentView = [[HCEmotionContentView alloc] init];
-        _emotionRecentView.count = 4;
+        
     }
     
     return _emotionRecentView;
@@ -44,7 +46,12 @@
 {
     if (_emotionDefaultView == nil) {
         _emotionDefaultView = [[HCEmotionContentView alloc] init];
-        _emotionDefaultView.count = 2;
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"com.sina.default/info.plist" ofType:nil];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        //字典数组－－－>转模型数组
+        _emotionDefaultView.emotions = [HCEmotionModel objectArrayWithKeyValuesArray:dict[@"emoticons"]];
     }
     
     return _emotionDefaultView;
@@ -54,7 +61,12 @@
 {
     if (_emotionEmojiView == nil) {
         _emotionEmojiView = [[HCEmotionContentView alloc] init];
-        _emotionEmojiView.count = 5;
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"com.apple.emoji/info.plist" ofType:nil];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        //字典数组－－－>转模型数组
+        _emotionEmojiView.emotions = [HCEmotionModel objectArrayWithKeyValuesArray:dict[@"emoticons"]];
     }
     
     return _emotionEmojiView;
@@ -64,7 +76,12 @@
 {
     if (_emotionLxhView == nil) {
         _emotionLxhView = [[HCEmotionContentView alloc] init];
-        _emotionLxhView.count = 1;
+
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"com.sina.lxh/info.plist" ofType:nil];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        //字典数组－－－>转模型数组
+        _emotionLxhView.emotions = [HCEmotionModel objectArrayWithKeyValuesArray:dict[@"emoticons"]];
     }
     
     return _emotionLxhView;
@@ -125,7 +142,7 @@
     CGFloat viewW = self.bounds.size.width;
     CGFloat viewH = self.bounds.size.height;
     CGFloat emotionToolbarW = viewW;
-    CGFloat emotionToolbarH = 32;
+    CGFloat emotionToolbarH = 44;
     CGFloat emotionToolbarX = 0;
     CGFloat emotionToolbarY = viewH - emotionToolbarH;
     self.emotionToolbar.frame = CGRectMake(emotionToolbarX, emotionToolbarY, emotionToolbarW, emotionToolbarH);
