@@ -10,6 +10,9 @@
 		A20029A21B3C0E52003987DA /* HCStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20029A11B3C0E52003987DA /* HCStatusPhotoView.m */; };
 		A20029A91B3C2C40003987DA /* HCComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20029A81B3C2C40003987DA /* HCComposeViewController.m */; };
 		A2063EF81B3D273C00D66F5B /* HCComposTextToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2063EF71B3D273C00D66F5B /* HCComposTextToolBar.m */; };
+		A2063EFB1B3D533C00D66F5B /* HCComposEmotionKeyborad.m in Sources */ = {isa = PBXBuildFile; fileRef = A2063EFA1B3D533C00D66F5B /* HCComposEmotionKeyborad.m */; };
+		A2063EFE1B3D720300D66F5B /* HCEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2063EFD1B3D720300D66F5B /* HCEmotionToolbar.m */; };
+		A2063F011B3D818D00D66F5B /* HCEmotionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2063F001B3D818D00D66F5B /* HCEmotionContentView.m */; };
 		A20703DC1B31605600ECFC76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DA1B31605600ECFC76 /* AppDelegate.m */; };
 		A20703DD1B31605600ECFC76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703DB1B31605600ECFC76 /* main.m */; };
 		A20703E31B31620700ECFC76 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A20703E21B31620700ECFC76 /* UIBarButtonItem+Extension.m */; };
@@ -121,6 +124,12 @@
 		A20029A81B3C2C40003987DA /* HCComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCComposeViewController.m; sourceTree = "<group>"; };
 		A2063EF61B3D273C00D66F5B /* HCComposTextToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCComposTextToolBar.h; sourceTree = "<group>"; };
 		A2063EF71B3D273C00D66F5B /* HCComposTextToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCComposTextToolBar.m; sourceTree = "<group>"; };
+		A2063EF91B3D533C00D66F5B /* HCComposEmotionKeyborad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCComposEmotionKeyborad.h; sourceTree = "<group>"; };
+		A2063EFA1B3D533C00D66F5B /* HCComposEmotionKeyborad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCComposEmotionKeyborad.m; sourceTree = "<group>"; };
+		A2063EFC1B3D720300D66F5B /* HCEmotionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEmotionToolbar.h; sourceTree = "<group>"; };
+		A2063EFD1B3D720300D66F5B /* HCEmotionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEmotionToolbar.m; sourceTree = "<group>"; };
+		A2063EFF1B3D818D00D66F5B /* HCEmotionContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEmotionContentView.h; sourceTree = "<group>"; };
+		A2063F001B3D818D00D66F5B /* HCEmotionContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEmotionContentView.m; sourceTree = "<group>"; };
 		A20703D91B31605600ECFC76 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A20703DA1B31605600ECFC76 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A20703DB1B31605600ECFC76 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -360,6 +369,12 @@
 			children = (
 				A2063EF61B3D273C00D66F5B /* HCComposTextToolBar.h */,
 				A2063EF71B3D273C00D66F5B /* HCComposTextToolBar.m */,
+				A2063EF91B3D533C00D66F5B /* HCComposEmotionKeyborad.h */,
+				A2063EFA1B3D533C00D66F5B /* HCComposEmotionKeyborad.m */,
+				A2063EFF1B3D818D00D66F5B /* HCEmotionContentView.h */,
+				A2063F001B3D818D00D66F5B /* HCEmotionContentView.m */,
+				A2063EFC1B3D720300D66F5B /* HCEmotionToolbar.h */,
+				A2063EFD1B3D720300D66F5B /* HCEmotionToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1063,6 +1078,7 @@
 				A226AD951B36499C0066AC9B /* MJRefreshBackGifFooter.m in Sources */,
 				A23B14D31B355236007D6727 /* UIImage+MultiFormat.m in Sources */,
 				A23B14C81B355236007D6727 /* MKAnnotationView+WebCache.m in Sources */,
+				A2063F011B3D818D00D66F5B /* HCEmotionContentView.m in Sources */,
 				A29DE29E1B33F074000B0AD7 /* AFSecurityPolicy.m in Sources */,
 				A29DE29A1B33F074000B0AD7 /* AFHTTPRequestOperation.m in Sources */,
 				A24B6D711B32D10F00287F51 /* HCTabBar5ContentView.m in Sources */,
@@ -1100,6 +1116,7 @@
 				A226AD8E1B36499C0066AC9B /* MJRefreshBackFooter.m in Sources */,
 				A226AD9D1B36499C0066AC9B /* UIScrollView+MJExtension.m in Sources */,
 				A226AD931B36499C0066AC9B /* MJRefreshAutoNormalFooter.m in Sources */,
+				A2063EFE1B3D720300D66F5B /* HCEmotionToolbar.m in Sources */,
 				A20703F11B31696800ECFC76 /* UIColor+Tools.m in Sources */,
 				A23B14D11B355236007D6727 /* UIButton+WebCache.m in Sources */,
 				A226AD9F1B36499C0066AC9B /* UIView+MJExtension.m in Sources */,
@@ -1113,6 +1130,7 @@
 				A2B705F71B3792E7005B9919 /* HCToolView.m in Sources */,
 				A218576B1B3C55B30032DAD2 /* HCPlaceHolderTextView.m in Sources */,
 				A2B705E41B3672C0005B9919 /* HCStatusFrames.m in Sources */,
+				A2063EFB1B3D533C00D66F5B /* HCComposEmotionKeyborad.m in Sources */,
 				A24B6D6B1B326A6700287F51 /* HCNewTypeButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

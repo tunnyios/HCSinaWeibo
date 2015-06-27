@@ -8,6 +8,10 @@
 
 #import "HCComposTextToolBar.h"
 
+@interface HCComposTextToolBar()
+
+@end
+
 @implementation HCComposTextToolBar
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -41,6 +45,7 @@
     topic.tag = HCComposTextToolBarTypeTopic;
     
     UIButton *emotion = [self creatBtnWithIcon:@"compose_emoticonbutton_background" heighIcon:@"compose_emoticonbutton_background_highlighted"];
+    self.isEmotion = YES;
     emotion.tag = HCComposTextToolBarTypeEmotion;
     
 }
@@ -69,9 +74,23 @@
 /** 按钮被点击 */
 - (void)btnClick:(UIButton *)btn
 {
+    //切换emotion图标
+    if (HCComposTextToolBarTypeEmotion == btn.tag) {
+        self.isEmotion = !_isEmotion;
+        if (self.isEmotion) {
+            [btn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
+        } else {
+            [btn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+        }
+        
+    }
+    
     if ([self.delegate respondsToSelector:@selector(composTextToolBarClickedWithType:)]) {
         [self.delegate composTextToolBarClickedWithType:btn.tag];
     }
+    
 }
 
 

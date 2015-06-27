@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCPlaceHolderTextView : UITextView <UITextViewDelegate>
+@interface HCPlaceHolderTextView : UITextView <UITextViewDelegate, UIScrollViewDelegate>
 
 /** 占位文字 */
 @property (nonatomic, copy) NSString *placeHolderText;

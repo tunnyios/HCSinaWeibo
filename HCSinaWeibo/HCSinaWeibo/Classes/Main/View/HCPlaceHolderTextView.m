@@ -16,6 +16,7 @@
     if (self) {
         [self becomeFirstResponder];
         
+        self.scrollEnabled = YES;
         //监听textView自己发出的 UITextViewTextDidChangeNotification通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self];
     }

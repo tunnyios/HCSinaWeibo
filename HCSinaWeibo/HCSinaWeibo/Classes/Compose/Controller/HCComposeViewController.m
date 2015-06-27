@@ -10,16 +10,51 @@
 #import "HCAccountTools.h"
 #import "HCPlaceHolderTextView.h"
 #import "HCComposTextToolBar.h"
+#import "HCComposEmotionKeyborad.h"
 
-@interface HCComposeViewController () <HCComposTextToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
-@property (nonatomic, weak) HCPlaceHolderTextView *comTextView;
-
+@interface HCComposeViewController () <HCComposTextToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
+/** 文本框view */
+@property (nonatomic, strong) HCPlaceHolderTextView *comTextView;
+/** 文本框工具条 */
 @property (nonatomic, weak) HCComposTextToolBar *textToolBar;
+/** 自定义表情键盘 */
+@property (nonatomic, strong) HCComposEmotionKeyborad *emotionKeyboard;
+
+
+/** 用作代码中的标识，是否正在切换键盘 */
+@property (nonatomic, assign) BOOL isSwitchKeyboard;
 
 @end
 
 @implementation HCComposeViewController
+
+- (HCPlaceHolderTextView *)comTextView
+{
+    if (_comTextView == nil) {
+        _comTextView = [[HCPlaceHolderTextView alloc] init];
+        _comTextView.placeHolderText = @"苏宏程天才！";
+        _comTextView.font = [UIFont systemFontOfSize:15];
+        _comTextView.frame = self.view.bounds;
+        
+        _comTextView.alwaysBounceVertical = YES;
+        _comTextView.delegate = self;
+        //    [comTextView becomeFirstResponder];
+        [self.view addSubview:_comTextView];
+        
+    }
+    
+    return _comTextView;
+}
+
+- (HCComposEmotionKeyborad *)emotionKeyboard
+{
+    if (_emotionKeyboard == nil) {
+        _emotionKeyboard = [[HCComposEmotionKeyborad alloc] init];
+        _emotionKeyboard.frame = CGRectMake(0, 0, self.view.bounds.size.width, 253);
+    }
+    
+    return _emotionKeyboard;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,10 +113,26 @@
     }
 }
 
+#pragma mark - 表情键盘处理
 /** 表情被点击 */
 - (void)emotionBtnClick
 {
     DLog(@"表情钮被点击");
+    if (self.textToolBar.isEmotion) {
+        self.comTextView.inputView = nil;
+    } else {
+        self.comTextView.inputView = self.emotionKeyboard;
+    }
+    
+    //正在切换键盘
+    self.isSwitchKeyboard = YES;
+    
+    [self.comTextView endEditing:YES];
+    //切换键盘结束
+    self.isSwitchKeyboard = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.comTextView becomeFirstResponder];
+    });
 }
 
 /** ##按钮被点击 */
@@ -160,26 +211,25 @@
      }
      */
 
+    //如果正在切换键盘，工具条不作处理
+    if (self.isSwitchKeyboard) return;
+    
     CGFloat keyboardY = [notify.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue].origin.y;
     CGFloat viewH = self.view.bounds.size.height;
     
     self.textToolBar.transform = CGAffineTransformMakeTranslation(0, keyboardY - viewH);
 }
 
+/** textViewDelegate */
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
 #pragma mark - 文本框部分
 
 - (void)setupTextView
 {
-    HCPlaceHolderTextView *comTextView = [[HCPlaceHolderTextView alloc] init];
-    comTextView.placeHolderText = @"苏宏程天才！";
-    comTextView.font = [UIFont systemFontOfSize:15];
-    comTextView.frame = self.view.bounds;
-//    [comTextView becomeFirstResponder];
-    [self.view addSubview:comTextView];
-    
-    
-    self.comTextView = comTextView;
-    
     //监听textView发出的 UITextViewTextDidChangeNotification通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self.comTextView];
     

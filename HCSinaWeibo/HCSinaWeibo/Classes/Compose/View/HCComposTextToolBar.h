@@ -27,6 +27,9 @@ typedef enum : NSUInteger {
 
 @interface HCComposTextToolBar : UIView
 
+/** 当前按钮是否是emotion */
+@property (nonatomic, assign) BOOL isEmotion;
+
 @property (nonatomic, weak) id<HCComposTextToolBarDelegate> delegate;
 
 @end
